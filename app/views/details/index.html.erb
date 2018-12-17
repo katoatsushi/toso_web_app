@@ -1,0 +1,5 @@
+<% @details.each do |d| %>
+<%#= link_to new_building_part_path,d.detail_name %>
+<%=link_to d.detail_name , new_building_mainpart_material_symptom_detail_part_path(params[:building_id],params[:mainpart_id],params[:material_id],params[:symptom_id],d.id) %>
+<% end %>
+

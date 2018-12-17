@@ -1,0 +1,6 @@
+<% @symptoms.each do |sym| %>
+
+<%= link_to sym.s_name,   building_mainpart_material_symptom_details_path(params[:building_id],params[:mainpart_id], params[:material_id], sym.id) %>
+<%# sym.details.each do |s| %>
+<%#= link_to new_building_part_path() s.setail_name %>
+<% end %>

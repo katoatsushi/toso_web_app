@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reform_part: MyString
+  reform_material: MyString
+  reform_working_out: MyString
+
+two:
+  reform_part: MyString
+  reform_material: MyString
+  reform_working_out: MyString

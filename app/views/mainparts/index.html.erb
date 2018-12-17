@@ -1,0 +1,15 @@
+<div class="btn-group">
+	<% @mainparts.each do|main| %>
+	
+  <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	<%=link_to main.mp_name  %>
+    <span class="caret"></span>
+  </button>
+   <% main.materials.each do 
+   |material| %>
+  <ul class="dropdown-menu">
+   <%= link_to  material.mate_name ,building_mainpart_material_symptoms_path(building_id: params[:building_id],mainpart_id: main.id,material_id: material.id) %>
+  </ul>
+  <%end%>
+  <%end%>
+</div>

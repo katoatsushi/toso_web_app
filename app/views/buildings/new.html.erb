@@ -1,0 +1,30 @@
+<%= form_for @building do |f| %>
+
+<div>
+    <%= f.label :建物のお名前 %>
+	<%= f.text_field :building_name %>
+</div>
+<div>
+	<%= f.label :所在地 %>
+	<%= f.text_field :building_place %>
+</div>
+<div>
+	<%= f.label :建物の年齢 %>
+	<%= f.text_field :building_year %>
+</div>
+<div>
+	<%=  f.label :建物の大きさ %>
+	<%= f.text_field :building_scale %>
+</div>
+<div>
+	<%= f.label :建物の種類 %>
+	<%= f.text_field :building_type %>
+</div>
+<div>
+	<%= f.label :建物の構造 %>
+	<%= f.text_field :building_construction %>
+</div>
+	<%=f.submit '次へ' %>
+	<%#= link_to "次へ" ,new_part_path %>
+<% end %>
+

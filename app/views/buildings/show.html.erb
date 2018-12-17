@@ -1,0 +1,26 @@
+<p>建物のお名前</p>
+<h2>
+<%= @building.building_name %>
+</h2>
+<% @parts = @building.parts %>
+<% @parts.each do |p| %>
+<div class = 'building_document'>
+<%= link_to p.detail.detail_name, building_part_path(building_id: params[:id],id: p.id)  %>
+</div>
+<% end %>
+<div>
+<%= link_to '♦︎各部位の資料♦︎を追加する', building_mainparts_path(building_id:  params[:id]) %>
+</div>
+<div>
+<%= link_to '♦︎各部位の素材/仕上げ素材について♦︎を追加' ,new_building_reform_path(building_id: params[:id]) %>
+</div>
+<%= link_to 'キャンセル',root_path %>
+<div>
+<%= current_user.name %>さんログイン中
+</div>
+
+<%= link_to "PDFで表示",
+              building_path(@building, format: "pdf",:target=>["_blank"]) %>
+
+
+

@@ -1,0 +1,20 @@
+.symptom_cond_treat{
+    padding: 8px 19px;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: #cde4ff;
+    border-top: solid 5px #5989cf;
+    border-bottom: solid 5px #5989cf;
+}
+.box4 p {
+    margin: 0; 
+    padding: 0;
+}
+
+h1 .symptom_cond_treat {
+color: #010079;
+text-shadow: 0 0 5px white;
+border-left: solid 7px #010079;
+background: -webkit-repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+background: repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+}

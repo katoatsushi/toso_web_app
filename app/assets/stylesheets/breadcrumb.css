@@ -1,0 +1,39 @@
+.breadcrumb {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.breadcrumb li{
+  position: relative;
+  display:inline-block;/*横に並ぶように*/
+  list-style: none;
+  font-weight: bold;/*太字*/
+  margin-right: 12px;
+}
+.breadcrumb li:after{/*三角の部分*/
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    border-style: solid;
+    border-color: transparent;
+    border-left-color: #aedfc6;/*背景色*/
+    border-width: 14px 12px;
+    width: 0;
+    height: 0;
+}
+
+.breadcrumb li a {
+    display: inline-block;
+    padding: 0 3px 0 7px;
+    height: 28px;
+    line-height: 28px;
+    text-decoration: none;
+    color: #747772;
+    background: #aedfc6;/*背景色*/
+    font-size: 13px;
+}
+
+.breadcrumb li a:hover {
+  color: #FFF;
+}

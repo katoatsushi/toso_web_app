@@ -1,0 +1,3 @@
+<% @materials.each do |mate| %>
+<%= link_to mate.mate_name, mainpart_material_symptoms_path(params[:mainpart_id],mate.id) %>
+<% end %>

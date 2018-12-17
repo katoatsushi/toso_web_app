@@ -1,0 +1,19 @@
+<%= form_for @reform,url: building_reforms_path(building_id: params[:building_id]) do |f| %>
+
+<div>
+    <%= f.label :場所 %>
+	<%= f.text_field :reform_part %>
+</div>
+<div>
+	<%= f.label :各部位の素材 %>
+	<%= f.text_field :reform_material %>
+</div>
+<div>
+	<%= f.label :仕上げ素材 %>
+	<%= f.text_field :reform_working_out %>
+</div>
+
+	<%=f.submit '次へ' %>
+	<%#= link_to "次へ" ,new_part_path %>
+<% end %>
+

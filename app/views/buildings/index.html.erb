@@ -1,0 +1,32 @@
+<h1>Building#index</h1>
+<div>
+	<%= link_to "ホーム", root_path,method: :get %>
+</div>
+<p>#ここがホーム画面になります</p>
+<p>#資料が最新順に並んでいる</p>
+
+<h2>資料一覧</h2>
+<!-- <div class="flex"> -->
+<% @buildings.each do |b| %>
+<%#= b.building_name %>
+	<div class = 'building_document'>
+	<%= link_to  building_path(b.id) do %>
+	<%= b.building_name %>
+	<div>
+	<%= b.user.name %>さんの資料
+</div>
+<% end %>
+</div>
+<% end %>
+
+<% if user_signed_in? %>
+	<%= current_user.name %>さん ログイン
+	<%= link_to "投稿", new_building_path %>
+	<%= link_to "ログアウト", destroy_user_session_path %>
+
+
+<% else %>
+	<%= link_to "ログインする", new_user_session_path, method: :post %>
+	<%= link_to "新規登録する", new_user_registration_path, method: :get  %>
+<% end %>
+
