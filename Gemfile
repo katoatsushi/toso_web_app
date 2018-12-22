@@ -14,6 +14,8 @@ gem 'rails-i18n' # この行を追加(ransackには関係ないけどdate_select
 gem 'ransack' 
 gem 'devise'
 gem 'gon'
+#Autoprefixer doesn’t support Node v4.8.2.のエラー用
+gem 'mini_racer'
 gem 'awesome_nested_set'
 gem 'ancestry'
 gem 'bootstrap'
@@ -27,6 +29,10 @@ gem 'rmagick'
 # gem 'wicked_pdf'
 # gem 'wkhtmltopdf-binary'
 #ここまで
+#gem 'bootstrap-sass', '3.3.7'
+gem "jquery-rails"
+# gem 'bootstrap'
+# gem 'jquery-rails'
 gem 'pry-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

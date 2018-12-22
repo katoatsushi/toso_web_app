@@ -1,4 +1,4 @@
-<div class="btn-group">
+<!-- <div class="btn-group">
 	<% @mainparts.each do|main| %>
 	
   <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -12,4 +12,17 @@
   </ul>
   <%end%>
   <%end%>
+</div>
+ -->
+<div class="panel panel-primary">
+  <% @mainparts.each do|main| %>
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= main.mp_name  %></h3>
+  </div>
+    <% main.materials.each do |material| %>
+      <div class="panel-body">
+        <%= link_to  material.mate_name ,building_mainpart_material_symptoms_path(building_id: params[:building_id],mainpart_id: main.id,material_id: material.id) %>
+      </div>
+      <% end %>
+  <% end %>
 </div>

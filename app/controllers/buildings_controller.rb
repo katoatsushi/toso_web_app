@@ -11,7 +11,7 @@ class BuildingsController < ApplicationController
     @building = Building.new(building_params)
     @building.user_id = user_id
     if @building.save
-      redirect_to root_path
+      redirect_to building_path(@building.id)
     else
       redirect_to new_building_path
     end

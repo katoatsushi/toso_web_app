@@ -33,43 +33,9 @@ grid([7, 0], [7, 5]).show
     #else
     #end
 
-    start_new_page
-    spider
-
 end
 
 def introduction
-end
-
-def spider
-g = Gruff::Spider.new(100, 640)
-# タイトル
-g.title = 'ゆうしゃ'
-# 使うフォント
-#g.font = File.expand_path('artwork/fonts/meiryo.ttc', RAILS_ROOT)
-g.font = "vendor/fonts/ipaexg.ttf"
-# グラフの目盛りの最大値
-g.maximum_value = 1000
-# グラフの目盛りの最小値
-g.minimum_value = 0
-# データが無いときの表示メッセージ
-g.no_data_message = 'データがないよ。'
-# データ
-g.data 'ちから', [70]
-g.data 'すばやさ', [40]
-g.data 'たいりょく', [80]
-g.data 'かしこさ', [20]
-g.data 'うんのよさ', [30]
-# 37signalsっぽくする
-g.theme_37signals
-# ファイルとして置く
-g.write(filename=File.expand_path('graphs/status.png'))
-image 'graphs/status.png'
-# クライアントに投げつける
-# send_data(g.to_blob,
-# :disposition => 'inline',
-# :type => 'image/png',
-# :filename => 'bart_scores.png')
 end
 
 def spider_graph_report(building)
@@ -80,7 +46,7 @@ def spider_graph_report(building)
     @score = building.parts.group(:part_type).average(:score)
     g = Gruff::Spider.new(7, '535x400')
     # タイトル
-    g.title = '部位ごとの点数'
+    #g.title = '部位ごとの点数'
     # 使うフォント
     #g.font = File.expand_path('artwork/fonts/meiryo.ttc', RAILS_ROOT)
     g.font = "vendor/fonts/ipaexg.ttf"
@@ -93,12 +59,10 @@ def spider_graph_report(building)
       value = value.to_f
       g.data "#{key}", [value]
     end
-    g.data "壁2", [5.5]
-    g.data "壁2", [6.5]
-    g.data "壁2", [5.5]
-    g.data "壁2", [4.5]
-    g.data "壁2", [5.5]
-    g.data "床2", [2.0]
+    g.data "壁10", [5.5]
+    g.data "壁10", [6.5]
+    g.data "壁10", [5.5]
+    g.data "壁10", [4.5]
 
     # g.theme = {
     #   :colors => ['black', 'grey'],
@@ -110,8 +74,15 @@ def spider_graph_report(building)
     #g.theme_rails_keynote
     g.theme_keynote
 
-    g.bottom_margin = 100
-    g.top_margin = 50
+    # g.theme_37signals
+    # g.theme_greyscale
+    # g.theme_keynote
+    # g.theme_odeo
+    # g.theme_pastel
+    #g.theme_rails_keynote
+
+    g.bottom_margin = 80
+    g.top_margin = 60
     #g.title_font_size = 70
     g.legend_font_size = 35
 

@@ -1,4 +1,3 @@
-<p>ここに検索機能</p>
 <%= form_for @part, url: building_parts_path(building_id: params[:building_id], detail_id: params[:detail_id]) do |f| %>
 <%= f.collection_radio_buttons(:detail_id, Detail.where(symptom_id: params[:symptom_id],mainpart_id: params[:mainpart_id],material_id: params[:material_id]), :id, :detail_name , include_hidden: false)do |b| %>
 <div>
@@ -11,5 +10,5 @@
 <%end%>
 
 
-<%= f.submit '次へ進む' %>
+<%= f.submit '次へ進む', class: 'btn btn-primary' %>
 <% end %>

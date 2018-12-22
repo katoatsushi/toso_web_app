@@ -9,6 +9,10 @@ Building.create(:building_name=>"ライオンズマンション2号棟",:user_id
 Building.create(:building_name=>"サンヴァリエンエ日吉",:user_id=>"1")
 Building.create(:building_name=>"四軒家",:user_id=>"2")
 
+100.times do |index|
+  Building.create(:building_name=>"テスト",:user_id=>"1")
+end
+
 #Mainpartのseed
 Mainpart.create(mp_name: "外壁")
 Mainpart.create(mp_name: "内壁")
