@@ -9,9 +9,11 @@
 </p>
 <%= form_for @part, url: building_part_path do |f| %>
 	<p style=" color:red; ,font-size:50px; ,font-weight:900;">※現状</p>
-	<%= f.text_area :cond ,value: @part.detail.condition,size: "150x10" %>
+	<%#= f.text_area :cond ,value: @part.detail.condition,size: "150x10" %>
+	<%= f.text_area :cond ,value: @part.cond,size: "150x10" %>
 	<p style="color:#00FF00; ,font-size:50px; ,font-weight:900;">※リフォーム内容</p>
-	<%= f.text_area :treat,value: @part.detail.treatment,size: "150x10" %>
+	<%#= f.text_area :treat,value: @part.detail.treatment,size: "150x10" %>
+	<%= f.text_area :treat,value: @part.treat,size: "150x10" %>
 
 <%= f.label :"点数を選択してください" %><br>
   <%= f.select :score, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7]] ,class:"form-control" %>

@@ -1,17 +1,17 @@
 #https://qiita.com/takashisite/items/9d1484b88708e2872134
 #参考にする
 
-User.create(:name=>"山田　太郎",:email=>"test1@gmail.com",:password=>"111111")
-User.create(:name=>"井上　花子",:email=>"test2@gmail.com",:password=>"222222")
-User.create(:name=>"安倍　晋三",:email=>"test3@gmail.com",:password=>"333333")
+# User.create(:name=>"山田　太郎",:email=>"test1@gmail.com",:password=>"111111")
+# User.create(:name=>"井上　花子",:email=>"test2@gmail.com",:password=>"222222")
+# User.create(:name=>"安倍　晋三",:email=>"test3@gmail.com",:password=>"333333")
 
-Building.create(:building_name=>"ライオンズマンション2号棟",:user_id=>"1")
-Building.create(:building_name=>"サンヴァリエンエ日吉",:user_id=>"1")
-Building.create(:building_name=>"四軒家",:user_id=>"2")
+# Building.create(:building_name=>"ライオンズマンション2号棟",:user_id=>"1")
+# Building.create(:building_name=>"サンヴァリエンエ日吉",:user_id=>"1")
+# Building.create(:building_name=>"四軒家",:user_id=>"2")
 
-100.times do |index|
-  Building.create(:building_name=>"テスト",:user_id=>"1")
-end
+# 100.times do |index|
+#   Building.create(:building_name=>"テスト",:user_id=>"1")
+# end
 
 #Mainpartのseed
 Mainpart.create(mp_name: "外壁")

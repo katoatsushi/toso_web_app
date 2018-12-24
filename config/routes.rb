@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :users, :only => [:index, :show]
 
   resources :buildings , only: [:create ,:new ] do
-    resources :parts, only: [:new,:create,:edit,:update, :show]
+    resources :parts, only: [:new,:create,:edit,:update, :show,:destroy]
   end
    
   root 'buildings#index'
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   resources :buildings ,only: [:show] do
-    resources :reforms ,only: [:new, :create]
+    resources :reforms ,only: [:new, :create,:destroy, :edit, :update]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

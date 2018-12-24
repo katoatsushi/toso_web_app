@@ -24,6 +24,8 @@ class PartsController < ApplicationController
 
   def edit
     @part = Part.find(params[:id])
+    @part.cond ||= @part.detail.condition
+    @part.treat ||= @part.detail.treatment
   end
 
   def update
@@ -36,10 +38,17 @@ class PartsController < ApplicationController
     end
   end
 
+  def destroy
+    @part = Part.find(params[:id])
+    @part.destroy
+    redirect_to building_path(params[:building_id])
+
+  end
+
   private
   # permit(:, keys: [:clubname, :clubtype, :text, :population, :profile_img , {:college_ids => []} ]) 
 	def part_params
-		params.require(:part).permit(:cond, :treat ,:symptom_id,:building_id, :score, :part_type)
+		params.require(:part).permit(:cond, :treat ,:detail_id,:building_id, :score, :part_type)
 	end
 end
 

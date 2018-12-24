@@ -1,2 +1,7 @@
 <div><%= @part.cond %></div>
 <div><%= @part.treat %></div>
+
+<% if @part.building.user.id == current_user.id %>
+	<%= link_to "削除",building_part_path ,method: :delete %>
+	<%= link_to "編集",edit_building_part_path ,method: :get %>
+<% end %>

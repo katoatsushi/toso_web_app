@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   #どの機能を使うにしてもまずはログインしなければいけない
-  #before_action :authenticate_user!, :except=>[:show]
+  before_action :authenticate_user!, :except=>[:show]
 
     protected
 

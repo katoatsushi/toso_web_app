@@ -16,6 +16,24 @@ class ReformsController < ApplicationController
 
   end
 
+  def edit
+    @reform = Reform.find(params[:id])
+  end
+
+  def update
+    @reform = Reform.find(params[:id])
+    @reform.update_attributes(reform_params)
+    if @reform.save
+      redirect_to building_path(id:  @reform.building_id)
+    end
+  end
+
+  def destroy
+    @reform = Reform.find(params[:id])
+    @reform.destroy
+    redirect_to building_path(params[:building_id])
+  end
+
   private
 
   def reform_params

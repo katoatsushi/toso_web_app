@@ -6,6 +6,10 @@
 		<% @building.reforms.each do |r|%>
 	<h3>
 		<%= r.reform_part %> &nbsp&nbsp<%= r.reform_material %>/<%= r.reform_working_out %>
+		<% if r.building.user.id == current_user.id %>
+		<%= link_to "削除", building_reform_path(building_id: @building.id, id: r.id), method: :delete %>
+		<%= link_to "編集", edit_building_reform_path(building_id: @building.id, id: r.id),method: :get %>
+		<% end %>
 	</h3>
 <%end%>
 
@@ -30,8 +34,10 @@
     </div>
 </div>
 
-<%= link_to '♦︎各部位の資料♦︎を追加する', building_mainparts_path(building_id:  params[:id]), class: 'btn btn-primary' %>
-<%= link_to '♦︎各部位の素材/仕上げ素材について♦︎を追加' ,new_building_reform_path(building_id: params[:id]), class: 'btn btn-primary' %>
+<% if @building.user_id == current_user.id %>
+	<%= link_to '♦︎各部位の資料♦︎を追加する', building_mainparts_path(building_id:  params[:id]), class: 'btn btn-primary' %>
+	<%= link_to '♦︎各部位の素材/仕上げ素材について♦︎を追加' ,new_building_reform_path(building_id: params[:id]), class: 'btn btn-primary' %>
+<% end %>
 <div>
 	<%= link_to "PDFで表示",
 	              building_path(@building, format: "pdf",:target=>["_blank"]), class: 'btn btn-success' %>
