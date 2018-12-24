@@ -15,44 +15,43 @@
 
 #Mainpartのseed
 Mainpart.create(mp_name: "外壁")
-#ここまで
-#Materialのseed
 Material.create(mate_name: "塗装" ,mainpart_id: 1)
 Material.create(mate_name: "タイル",mainpart_id: 1)
 Material.create(mate_name: "パネル",mainpart_id: 1)
+Symptom.create(s_name: "ひび割れ(塗装)", material_id: 1, mainpart_id: 1)
+Symptom.create(s_name: "剥がれ(塗装)", material_id: 1, mainpart_id: 1)
+Symptom.create(s_name: "色褪せ(塗装)", material_id: 1, mainpart_id: 1)
+Symptom.create(s_name: "ひび割れ(タイル)", material_id: 2, mainpart_id: 1)
+Symptom.create(s_name: "剥がれ(タイル)", material_id: 2, mainpart_id: 1)
+Symptom.create(s_name: "色褪せ(タイル)", material_id: 2, mainpart_id: 1)
+Symptom.create(s_name: "ひび割れ(パネル)", material_id: 3, mainpart_id: 1)
+Symptom.create(s_name: "剥がれ(パネル)", material_id: 3, mainpart_id: 1)
+Symptom.create(s_name: "色褪せ(パネル)", material_id: 3, mainpart_id: 1)
+Detail.create(detail_name: "ひび割れ(塗装)①",condition: "ひどいひび割れ①です",treatment: "ひび①修理します", mainpart_id: 1, material_id: 1, symptom_id: 1 ,detail_type: "壁")
+Detail.create(detail_name: "ひび割れ(塗装)②",condition: "ひどいひび割れ②です2",treatment: "ひび②修理します2", mainpart_id: 1, material_id: 1, symptom_id: 1 ,detail_type: "壁")
+Detail.create(detail_name: "ひび割れ(塗装)③",condition: "ひどいひび割れ③です3",treatment: "ひび③修理します3", mainpart_id: 1, material_id: 1, symptom_id: 1 ,detail_type: "壁")
 
-Mainpart.create(mp_name: "内壁")
-Material.create(mate_name: "塗装(内壁)" ,mainpart_id: 2)
-Material.create(mate_name: "タイル(内壁)",mainpart_id: 2)
-Material.create(mate_name: "パネル(内壁)",mainpart_id: 2)
+Detail.create(detail_name: "剥がれ(塗装)①",condition: "ひどい剥がれ①です",treatment: "剥がれ①修理します", mainpart_id: 1, material_id: 1, symptom_id: 2 ,detail_type: "床")
+Detail.create(detail_name: "剥がれ(塗装)②",condition: "ひどい剥がれ②です2",treatment: "剥がれ②修理します2", mainpart_id: 1, material_id: 1, symptom_id: 2 ,detail_type: "床")
+Detail.create(detail_name: "剥がれ(塗装)③",condition: "ひどい剥がれ③です3",treatment: "剥がれ③修理します3", mainpart_id: 1, material_id: 1, symptom_id: 2 ,detail_type: "床")
 
-Mainpart.create(mp_name: "屋根")
-Material.create(mate_name: "塗装(屋根)" ,mainpart_id: 3)
-Material.create(mate_name: "タイル(屋根)",mainpart_id: 3)
-Material.create(mate_name: "パネル(屋根)",mainpart_id: 3)
+Detail.create(detail_name: "色褪せ(塗装)①",condition: "ひどい色褪せ①です",treatment: "色褪せ①修理します", mainpart_id: 1, material_id: 1, symptom_id: 3 ,detail_type: "屋根")
+Detail.create(detail_name: "色褪せ(塗装)②",condition: "ひどい色褪せ②です2",treatment: "色褪せ②修理します2", mainpart_id: 1, material_id: 1, symptom_id: 3 ,detail_type: "屋根")
+Detail.create(detail_name: "色褪せ(塗装)③",condition: "ひどい色褪せ③です3",treatment: "色褪せ③修理します3", mainpart_id: 1, material_id: 1, symptom_id: 3 ,detail_type: "屋根")
+
+
+# Mainpart.create(mp_name: "内壁")
+# Material.create(mate_name: "塗装(内壁)" ,mainpart_id: 2)
+# Material.create(mate_name: "タイル(内壁)",mainpart_id: 2)
+# Material.create(mate_name: "パネル(内壁)",mainpart_id: 2)
+
+
+# Mainpart.create(mp_name: "屋根")
+# Material.create(mate_name: "塗装(屋根)" ,mainpart_id: 3)
+# Material.create(mate_name: "タイル(屋根)",mainpart_id: 3)
+# Material.create(mate_name: "パネル(屋根)",mainpart_id: 3)
 #ここまで
 
-Symptom.create(s_name: "ひび割れ", material_id: 2, mainpart_id: 1)
-Symptom.create(s_name: "剥がれ", material_id: 2, mainpart_id: 1)
-Symptom.create(s_name: "色褪せ", material_id: 2, mainpart_id: 1)
-Symptom.create(s_name: "ひび割れ", material_id: 2, mainpart_id: 2)
-Symptom.create(s_name: "剥がれ", material_id: 2, mainpart_id: 2)
-Symptom.create(s_name: "色褪せ", material_id: 2, mainpart_id: 2)
-Symptom.create(s_name: "ひび割れ", material_id: 2, mainpart_id: 3)
-Symptom.create(s_name: "剥がれ", material_id: 2, mainpart_id: 3)
-Symptom.create(s_name: "色褪せ", material_id: 2, mainpart_id: 3)
-
-Detail.create(detail_name: "ひび割れ①",condition: "ひどいひび割れ①です",treatment: "ひび①修理します", mainpart_id: 1, material_id: 2, symptom_id: 1 ,detail_type: "壁")
-Detail.create(detail_name: "ひび割れ②",condition: "ひどいひび割れ②です2",treatment: "ひび②修理します2", mainpart_id: 1, material_id: 2, symptom_id: 1 ,detail_type: "壁")
-Detail.create(detail_name: "ひび割れ③",condition: "ひどいひび割れ③です3",treatment: "ひび③修理します3", mainpart_id: 1, material_id: 2, symptom_id: 1 ,detail_type: "壁")
-
-Detail.create(detail_name: "剥がれ①",condition: "ひどい剥がれ①です",treatment: "剥がれ①修理します", mainpart_id: 1, material_id: 2, symptom_id: 2 ,detail_type: "床")
-Detail.create(detail_name: "剥がれ②",condition: "ひどい剥がれ②です2",treatment: "剥がれ②修理します2", mainpart_id: 1, material_id: 2, symptom_id: 2 ,detail_type: "床")
-Detail.create(detail_name: "剥がれ③",condition: "ひどい剥がれ③です3",treatment: "剥がれ③修理します3", mainpart_id: 1, material_id: 2, symptom_id: 2 ,detail_type: "床")
-
-Detail.create(detail_name: "色褪せ①",condition: "ひどい色褪せ①です",treatment: "色褪せ①修理します", mainpart_id: 1, material_id: 2, symptom_id: 3 ,detail_type: "屋根")
-Detail.create(detail_name: "色褪せ②",condition: "ひどい色褪せ②です2",treatment: "色褪せ②修理します2", mainpart_id: 1, material_id: 2, symptom_id: 3 ,detail_type: "屋根")
-Detail.create(detail_name: "色褪せ③",condition: "ひどい色褪せ③です3",treatment: "色褪せ③修理します3", mainpart_id: 1, material_id: 2, symptom_id: 3 ,detail_type: "屋根")
 # render 'db/mainpart_seed.rb'
 # render 'db/material_seed.rb'
 # render 'db/symptom_seed.rb'
