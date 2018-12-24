@@ -24,5 +24,16 @@ test:
   database: samplebuilding_test
 
 production:
-  <<: *default
-  database: samplebuilding_production
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: heroku_851a45d0f3d0f31
+  pool: 5
+  username: bc86fa435a5299
+  password: 9b7f7065
+  host: us-cdbr-iron-east-01.cleardb.net
+
+# production:
+#   <<: *default
+#   database: samplebuilding_production
+
