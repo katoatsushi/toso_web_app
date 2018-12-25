@@ -10,6 +10,8 @@
   		    mainpart_id: params[:mainpart_id],
   		    material_id: params[:material_id],
   		    symptom_id: symptom.id ,detail_id: detail.id) %>
+          <%= detail.condition %>
+          <%= detail.treatment %>
       </div>
       <% end %>
   <% end %>
