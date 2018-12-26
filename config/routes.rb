@@ -28,6 +28,17 @@ Rails.application.routes.draw do
     end
   end
 
+
+  resources :buildings , only: [:create ,:new ] do
+    resources :mainparts, only: [:index, :show] do
+      resources :materials, only: [:index, :show] do
+            resources :parts, only: [:new,:create,:edit,:update] 
+          end
+    end
+  end
+
+
+
   resources :buildings ,only: [:show] do
     resources :reforms ,only: [:new, :create,:destroy, :edit, :update]
   end

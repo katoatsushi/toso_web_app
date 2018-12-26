@@ -5,14 +5,15 @@ class PartsController < ApplicationController
   end
 
   def create
-  	@part = Part.new(part_params)
+    @part = Part.new(part_params)
     @part.building_id = params[:building_id]
-    @part.detail_id = params[:detail_id]
-  	if @part.save
+    @part.detail_id = params[:part][:detail_id]
+    #binding.pry
+    if @part.save
       redirect_to edit_building_part_path(:building_id => @part.building_id, :id=> @part.id)
-  	else
-  		redirect_to new_building_part_path
-  	end
+    else
+      redirect_to new_building_part_path
+    end
   end
 
   def index
@@ -47,9 +48,9 @@ class PartsController < ApplicationController
 
   private
   # permit(:, keys: [:clubname, :clubtype, :text, :population, :profile_img , {:college_ids => []} ]) 
-	def part_params
-		params.require(:part).permit(:cond, :treat ,:detail_id,:building_id, :score, :part_type)
-	end
+  def part_params
+    params.require(:part).permit(:cond, :treat ,:detail_id,:building_id, :score, :part_type)
+  end
 end
 
 
