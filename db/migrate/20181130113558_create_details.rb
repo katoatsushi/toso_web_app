@@ -6,6 +6,7 @@ class CreateDetails < ActiveRecord::Migration[5.1]
       t.text :treatment
       t.string :detail_type
       #階層に伴うid取得
+      t.integer :top_id
       t.integer :material_id
       t.integer :mainpart_id
       t.integer :symptom_id

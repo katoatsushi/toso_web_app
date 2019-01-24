@@ -1,6 +1,12 @@
 <div><%= @part.cond %></div>
 <div><%= @part.treat %></div>
-
+<div>
+	<% if @part.picturename.blank? %>
+		<p>写真タイトル：不明</p>
+	<% else %>
+		<p>写真タイトル</p><%= @part.picturename %>
+	<% end %>
+</div>
 <% if @part.building.user.id == current_user.id %>
 	<%= link_to "削除",building_part_path ,method: :delete %>
 	<%= link_to "編集",edit_building_part_path ,method: :get %>

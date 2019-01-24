@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181212021952) do
+ActiveRecord::Schema.define(version: 20190120083508) do
 
   create_table "buildings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "building_name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20181212021952) do
     t.text "condition"
     t.text "treatment"
     t.string "detail_type"
+    t.integer "top_id"
     t.integer "material_id"
     t.integer "mainpart_id"
     t.integer "symptom_id"
@@ -38,12 +39,14 @@ ActiveRecord::Schema.define(version: 20181212021952) do
 
   create_table "mainparts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "mp_name"
+    t.integer "top_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "materials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "mate_name"
+    t.integer "top_id"
     t.integer "mainpart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,6 +61,7 @@ ActiveRecord::Schema.define(version: 20181212021952) do
     t.integer "detail_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "picturename"
     t.index ["building_id"], name: "index_parts_on_building_id"
   end
 
@@ -73,8 +77,15 @@ ActiveRecord::Schema.define(version: 20181212021952) do
 
   create_table "symptoms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "s_name"
+    t.integer "top_id"
     t.integer "material_id"
     t.integer "mainpart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "maintitle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -35,7 +35,7 @@
 </div>
 
 <% if @building.user_id == current_user.id %>
-	<%= link_to '♦︎各部位の資料♦︎を追加する', building_mainparts_path(building_id:  params[:id]), class: 'btn btn-primary' %>
+	<%= link_to '♦︎各部位の資料♦︎を追加する', building_tops_path(building_id:  params[:id]), class: 'btn btn-primary' %>
 	<%= link_to '♦︎各部位の素材/仕上げ素材について♦︎を追加' ,new_building_reform_path(building_id: params[:id]), class: 'btn btn-primary' %>
 <% end %>
 <div>
@@ -44,5 +44,5 @@
 	<%= link_to 'キャンセル',root_path, class: 'btn btn-default' %>
 </div>
 <div>
-	<%= current_user.name %>さんログイン中
+	♦︎<%= current_user.name %>さんログイン中♦︎
 </div>

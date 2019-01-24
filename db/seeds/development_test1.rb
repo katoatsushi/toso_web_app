@@ -1,0 +1,7 @@
+Top.create(maintitle: "this is title")
+Mainpart.create(mp_name: "外壁", top_id: 1)
+Mainpart.create(mp_name: "内壁", top_id: 1)
+Mainpart.create(mp_name: "屋根", top_id: 1)
+Material.create(mate_name: "塗装" ,mainpart_id: 1)
+Material.create(mate_name: "タイル",mainpart_id: 1)
+Material.create(mate_name: "パネル",mainpart_id: 1)

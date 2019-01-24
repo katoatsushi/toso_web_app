@@ -49,7 +49,7 @@ class PartsController < ApplicationController
   private
   # permit(:, keys: [:clubname, :clubtype, :text, :population, :profile_img , {:college_ids => []} ]) 
   def part_params
-    params.require(:part).permit(:cond, :treat ,:detail_id,:building_id, :score, :part_type)
+    params.require(:part).permit(:cond, :treat ,:detail_id,:building_id, :score, :part_type, :picturename)
   end
 end
 

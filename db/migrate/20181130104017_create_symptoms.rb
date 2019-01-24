@@ -6,6 +6,7 @@ class CreateSymptoms < ActiveRecord::Migration[5.1]
       # t.text :treatment
 
       #階層に伴うid取得
+      t.integer :top_id
       t.integer :material_id
       t.integer :mainpart_id
       t.timestamps

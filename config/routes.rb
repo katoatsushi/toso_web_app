@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'tops/index'
+
+  get 'tops/show'
+
+  get 'top/show'
+
+  get 'top/index'
+
   get 'users/show'
 
   get 'users/index'
@@ -10,30 +18,38 @@ Rails.application.routes.draw do
   #resources :users do
   resources :users, :only => [:index, :show]
 
+  # resources :buildings , only: [:create ,:new ] do
+  #   resources :details ,only: [:index , :show] do
+  #   resources :parts, only: [:new,:create,:edit,:update, :show,:destroy]
+  #   end
+  # end
+
   resources :buildings , only: [:create ,:new ] do
     resources :parts, only: [:new,:create,:edit,:update, :show,:destroy]
   end
-   
+
   root 'buildings#index'
 
+  # resources :buildings , only: [:create ,:new ] do
+  #   resources :tops, only: [:index, :show] do
+  #     resources :mainparts, only: [:index, :show] do
+  #       resources :materials, only: [:index, :show] do
+  #         resources :symptoms, only: [:index, :show] do
+  #           resources :details do
+  #             resources :parts, only: [:new,:create,:edit,:update] 
+  #           end
+  #         end
+  #       end
+  #     end
+  #   end
+  # end
+
+
   resources :buildings , only: [:create ,:new ] do
-    resources :mainparts, only: [:index, :show] do
-      resources :materials, only: [:index, :show] do
-        resources :symptoms, only: [:index, :show] do
-          resources :details do
-            resources :parts, only: [:new,:create,:edit,:update] 
-          end
-        end
+    resources :tops , only: [:index, :show] do
+      resources :mainparts, only: [:index, :show] do
+        resources :parts, only: [:new,:create,:edit,:update] 
       end
-    end
-  end
-
-
-  resources :buildings , only: [:create ,:new ] do
-    resources :mainparts, only: [:index, :show] do
-      resources :materials, only: [:index, :show] do
-            resources :parts, only: [:new,:create,:edit,:update] 
-          end
     end
   end
 

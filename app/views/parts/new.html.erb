@@ -1,11 +1,11 @@
-
 <div class="panel panel-primary">
 <%= form_for @part, url: building_parts_path(building_id: params[:building_id], detail_id: params[:detail_id]) do |f| %>
-	<% Material.find(params[:material_id]).symptoms.each do |s|%>
+	<% Material.where(top_id: params[:top_id],mainpart_id: params[:mainpart_id]).each do |material|%>
 	<div class="panel-heading">
-		<h2 class="panel-title"><%= s.s_name %></h2>
+		<h2 class="panel-title"><%= material.mate_name %></h2>
 	</div>
-		<%= f.collection_radio_buttons(:detail_id, Detail.where(symptom_id: s.id ,mainpart_id: params[:mainpart_id],material_id: params[:material_id]), :id, :detail_name , include_hidden: false) do |b| %>
+	<% material.symptoms.each do |symptom| %>
+		<%= f.collection_radio_buttons(:detail_id, Detail.where(symptom_id: symptom.id ,material_id: material.id ,top_id: params[:top_id], mainpart_id: params[:mainpart_id]), :id, :detail_name , include_hidden: false) do |b| %>
 			<div class="panel-body">
 				<h3><%= b.label { b.radio_button + b.label } %></h3>
 				<h style="color:red;">[現状]</h>
@@ -14,6 +14,7 @@
 				<%= b.object.treatment %>
 			</div>
 		<% end %>
+	<% end %>
 	<% end %>
 <%= f.submit '次へ進む', class: 'btn btn-primary' %>
 <% end %>
