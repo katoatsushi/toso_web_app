@@ -108,7 +108,7 @@ def conclusion
     text "♦複数の診断を行った部位につきましては、その部位における平均点を記載しております。♦",:align => :center
     move_down 10
 
-    table_content
+    conclusion_table_content
     
     #if @building.parts.group(:part_type).average(:score).to_a.count >= 3
     #part_typeは最低でも3つ以上ないとグラフを作成できない
