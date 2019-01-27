@@ -98,8 +98,8 @@ end
 end
 
 def conclusion
-conclusion_first
-    #text "診断結果",:align => :center, :size => 35 
+   stroke_axis
+    conclusion_title
 
     move_down 3
     text "♦#{@building.building_name}の診断結果です。♦",:align => :center
@@ -110,9 +110,6 @@ conclusion_first
 
     table_content
     
-    stroke_axis
-    #平均点をハッシュで返す
-    #@score = building.parts.group(:part_type).average(:score)
     #if @building.parts.group(:part_type).average(:score).to_a.count >= 3
     #part_typeは最低でも3つ以上ないとグラフを作成できない
     g = Gruff::Spider.new(7, '380x280')
