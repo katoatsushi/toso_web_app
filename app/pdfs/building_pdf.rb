@@ -42,31 +42,4 @@ class BuildingPDF
 
   end
 
-
-  # def gruff
-  #   @score = building.parts.group(:part_type).average(:score)
-  #   @avarage_score = @score.values.sum/@score.keys.count
-
-  #   # r.start_new_page :layout => File.join('app', 'pdfs', 'result_pdf.tlf') do |page|
-  #     @g = Gruff::Spider.new(7, '380x280')
-  #     @g.font = "vendor/fonts/ipaexg.ttf"
-  #     @g.maximum_value = 6.0
-  #     @g.minimum_value = 0
-  #     @g.no_data_message = 'データがありません'
-  #     @score.each do |key ,value|
-  #       value = value.to_f
-  #       @g.data "#{key}", [value]
-  #     end
-  #     @g.data "屋根" ,[7.0]
-  #     @g.theme_keynote
-  #     @g.bottom_margin = 80
-  #     @g.top_margin = 80
-  #     @g.legend_font_size = 35
-  #     @g.write(filename=File.expand_path("graphs/#{@g.object_id}.png"))
-  #     image "graphs/#{@g.object_id}.png"
-  #     #item(:image).src("graphs/#{g.object_id}.png")
-  #     @gruff_img = {img: "graphs/#{@g.object_id}.png"}
-  #     #return gruff_img
-  #     last_page.values(@gruff_img)
-  # end
 end
