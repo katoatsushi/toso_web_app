@@ -22,6 +22,7 @@ gem 'bootstrap'
 #rails をGem化する
 gem 'prawn'
 gem 'prawn-table'
+gem 'thinreports', '~> 0.10.3'
 #グラフ
 gem 'gruff'
 gem 'rmagick'
