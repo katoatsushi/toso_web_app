@@ -19,7 +19,6 @@ class BuildingsController < ApplicationController
 
   def show
   @building = Building.find(params[:id])
-  @part = Part.find(1)
       respond_to do |format|
         format.html
         format.pdf do
