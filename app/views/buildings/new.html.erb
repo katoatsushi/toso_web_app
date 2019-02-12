@@ -3,9 +3,8 @@
 <table class="type10">
     <tbody>
 	<tr>
-        <th style="font-size: 25px"><!-- <span style="font-size: 30px"> -->建物のお名前<!-- </span> -->
-        </th>
-        <td><%= f.text_field :building_name, placeholder: "   建物のお名前", :size => "80%" %><span class="arrow_box">半角英数字で入力してください</span></td>
+        <th style="font-size: 25px"><%= f.label :物件名称 %></th>
+        <td><%= f.text_field :building_name, placeholder: "   物件名称", :size => "80%" %><span class="arrow_box">半角英数字で入力してください</span></td>
     </tr>
     <tr>
         <th style="font-size: 25px"><%= f.label :所在地 %></th> 
@@ -16,11 +15,11 @@
         <td><%= f.text_field :building_year, placeholder: "   建物の年齢", :size => "30*60" %><span class="arrow_box">半角英数字で入力してください</span></td>
     </tr>
     <tr>
-    	<th style="font-size: 25px"><%=  f.label :建物の大きさ %></th>
+    	<th style="font-size: 25px"><%=  f.label :物件規模 %></th>
         <td><%= f.text_field :building_scale, placeholder: "   建物の大きさ", :size => "30*60" %><span class="arrow_box">半角英数字で入力してください</span></td>
     </tr>
     <tr>
-        <th style="font-size: 25px"><%= f.label :建物の種類 %></th>
+        <th style="font-size: 25px"><%= f.label :物件種別 %></th>
         <td><%= f.text_field :building_construction, placeholder: "   建物の種類", :size => "40%" %><span class="arrow_box">半角英数字で入力してください</span></td>
     </tr>
     </tbody>

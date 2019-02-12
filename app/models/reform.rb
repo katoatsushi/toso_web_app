@@ -1,3 +1,3 @@
 class Reform < ApplicationRecord
-	belongs_to :building
+	belongs_to :building, :dependent => :destroy
 end
