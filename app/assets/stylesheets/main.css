@@ -64,7 +64,7 @@ input:focus + span {
     border-width: 10px;
     margin-top: -10px;
 }
-
+/*
 table.type10 {
     border-collapse: collapse;
     text-align: left;
@@ -147,4 +147,4 @@ table.type08 td {
     vertical-align: top;
     border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
-}
+}*/

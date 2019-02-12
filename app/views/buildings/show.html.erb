@@ -1,22 +1,33 @@
-<p>♦︎建物のお名前♦︎</p>
-<h2>
-	<%= @building.building_name %>
-</h2>
-<div>♦︎各部位の素材/仕上げ素材について♦︎</div>
-		<% @building.reforms.each do |r|%>
-	<h3>
-		<%= r.reform_part %> &nbsp&nbsp<%= r.reform_material %>/<%= r.reform_working_out %>
-		<% if r.building.user.id == current_user.id %>
+<table>
+  <tr>
+    <th style="font-size: 15px">♦︎建物のお名前♦︎</th>
+    <td style="font-size: 18px"><%= @building.building_name %></td>
+  </tr>
+  <% @building.reforms.each do |r|%>
+  <tr>
+    <th style="font-size: 15px">♦︎各部位の素材/仕上げ素材について♦︎</th>
+    <td style="font-size: 18px"><%= r.reform_part %> &nbsp&nbsp<%= r.reform_material %>/<%= r.reform_working_out %>
+    	<% if r.building.user.id == current_user.id %>
 		<%= link_to "削除", building_reform_path(building_id: @building.id, id: r.id), method: :delete %>
 		<%= link_to "編集", edit_building_reform_path(building_id: @building.id, id: r.id),method: :get %>
 		<% end %>
-	</h3>
-<%end%>
+    </td>
+  </tr>
+  <%end%>
+</table>
 
-♦︎各部位の資料♦︎
 
 
-<div class="container">
+
+
+
+
+
+
+
+<div class="box30">
+<!--     <div class="box-title">♦︎各部位の資料♦︎</div> -->
+
     <div class="row">
 		<% @building.parts.each do |p| %>
         <!-- <div class="col-xs-3"> -->
@@ -32,7 +43,32 @@
 	    </div>
 	    <% end %>
     </div>
+
 </div>
+<!-- 
+♦︎各部位の資料♦︎
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+		<% @building.parts.each do |p| %>
+        <div class="col-xs-4 col-md-3">
+        <div class = 'building_document'>
+		<%= link_to  building_part_path(building_id: params[:id],id: p.id) do %>
+			<%= p.detail.detail_name %>
+			<div>
+				<%= p.building.user.name %>さんの資料
+		    </div>
+	    <% end %>
+		</div>
+	    </div>
+	    <% end %>
+    </div>
+</div> -->
 
 <% if @building.user_id == current_user.id %>
 	<%= link_to '♦︎各部位の資料♦︎を追加する', building_tops_path(building_id:  params[:id]), class: 'btn btn-primary' %>
