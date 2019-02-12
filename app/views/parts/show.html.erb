@@ -1,13 +1,29 @@
-<div><%= @part.cond %></div>
-<div><%= @part.treat %></div>
-<div>
-	<% if @part.picturename.blank? %>
-		<p>写真タイトル：不明</p>
-	<% else %>
-		<p>写真タイトル</p><%= @part.picturename %>
+
+<div class="mainbox"> <%= @part.building.building_name %> > <%=Detail.find(@part.detail.id).detail_name%></div>
+<table class="type10">
+    <tbody>
+	<tr>
+        <th style="font-size: 30px; background-color:#BB0000">現状</th>
+        <td style="font-size: 20px; border : solid 2px"><%= @part.cond %></td>
+    </tr>
+    <tr>
+        <th style="font-size: 30px">処置</th> 
+        <td style="font-size: 20px; border : solid 2px"><%= @part.treat %></td>
+    </tr>
+    <tr>
+        <th style="font-size: 20px; background-color: #005500">写真タイトル</th>
+        <td style="font-size: 15px; border : solid 2px">	
+        <% if @part.picturename.blank? %>
+		不明
+	　　　<% else %>
+		写真タイトル<%= @part.picturename %>
 	<% end %>
-</div>
+	</td>
+    </tr>
+    </tbody>
+</table>
 <% if @part.building.user.id == current_user.id %>
-	<%= link_to "削除",building_part_path ,method: :delete %>
-	<%= link_to "編集",edit_building_part_path ,method: :get %>
+	<button type="button" class="btn btn-success btn-lg"><%= link_to "削除",building_part_path ,method: :delete %></button>
+	<button type="button" class="btn btn-danger btn-lg">
+<%= link_to "編集",edit_building_part_path ,method: :get %></button>
 <% end %>
