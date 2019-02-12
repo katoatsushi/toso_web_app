@@ -1,0 +1,150 @@
+* {
+        box-sizing: border-box;
+        outline: none;
+    }
+
+input[type="submit"] {
+    border-radius: 3px;
+}
+
+input[type="text"] {
+    /*基本のスタイル*/
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    /*フォーカスしたときのトランジション設定 すべてのプロパティが0.5秒で切り替わる*/
+    transition: all 0.5s;
+    }
+
+span {
+    /*フォーカスしていないときは非表示に*/
+    display: none;
+    /*input要素にスタイルを合わせます*/
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+}
+
+input[type="text"]:focus {
+    /*フォーカスした時に影をつける*/
+    box-shadow: 0 0 3px #4169e1;
+    border: 1px solid #4169e1;
+}
+
+input:focus + span {
+    /*フォーカスしたらツールチップを表示させる*/
+    display: inline;
+}
+
+.arrow_box {
+    position: relative;
+    background: #c93434;
+    border: 3px solid #ab2c2c;
+    margin-left: 10px;
+    padding: 6px;
+    color: #fff;
+}
+.arrow_box:after, .arrow_box:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(201, 52, 52, 0);
+    border-right-color: #c93434;
+    border-width: 6px;
+    margin-top: -6px;
+}
+.arrow_box:before {
+    border-color: rgba(171, 44, 44, 0);
+    border-right-color: #ab2c2c;
+    border-width: 10px;
+    margin-top: -10px;
+}
+
+table.type10 {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+table.type10 thead th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+    background: #04162e;
+}
+table.type10 td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+table.type10 tr:nth-child(even) th {
+    background: #f3f6f7;
+}
+
+table.type10 tr:nth-child(even) td {
+    background: #f3f6f7;
+}
+
+table.type11 {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: center;
+    line-height: 1.5;
+}
+table.type11 th {
+
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+    background: #036;
+}
+table.type11 td {
+
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+
+}
+
+table.type11 tr:nth-child(even) td {
+    background: #f2f2f2;
+}
+
+
+table.type08 {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-left: 1px solid #ccc;
+}
+
+table.type08 thead th {
+    padding: 10px;
+    font-weight: bold;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 2px solid #c00;
+    background: #dcdcd1;
+}
+table.type08 tbody th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background: #ececec;
+}
+table.type08 td {
+    padding: 10px;
+    vertical-align: top;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
