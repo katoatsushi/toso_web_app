@@ -18,11 +18,9 @@
 
 <div class="mainbox" style="background-color: #1E90FF;">♦︎各部位の資料♦︎</div>
 <div class="box30">
-<!--     <div class="box-title">♦︎各部位の資料♦︎</div> -->
 
     <div class="row">
 		<% @building.parts.each do |p| %>
-        <!-- <div class="col-xs-3"> -->
         <div class="col-xs-4 col-md-3">
         <div class = 'building_document'>
 		<%= link_to  building_part_path(building_id: params[:id],id: p.id) do %>
@@ -37,30 +35,7 @@
     </div>
 
 </div>
-<!-- 
-♦︎各部位の資料♦︎
 
-
-
-
-
-
-<div class="container">
-    <div class="row">
-		<% @building.parts.each do |p| %>
-        <div class="col-xs-4 col-md-3">
-        <div class = 'building_document'>
-		<%= link_to  building_part_path(building_id: params[:id],id: p.id) do %>
-			<%= p.detail.detail_name %>
-			<div>
-				<%= p.building.user.name %>さんの資料
-		    </div>
-	    <% end %>
-		</div>
-	    </div>
-	    <% end %>
-    </div>
-</div> -->
 
 <% if @building.user_id == current_user.id %>
 	<%= link_to '♦︎各部位の資料♦︎を追加する', building_tops_path(building_id:  params[:id]), class: 'btn btn-primary' %>
@@ -71,6 +46,7 @@
 	<%= link_to "PDFで表示",
 	              building_path(@building, format: "pdf",:target=>["_blank"]), class: 'btn btn-success' %>
 	<%end%>
+	<%= link_to '建物詳細を編集', edit_building_path(@building.id), class: 'btn btn-success' %>
 	<%= link_to 'キャンセル',root_path, class: 'btn btn-default' %>
 </div>
 <div>

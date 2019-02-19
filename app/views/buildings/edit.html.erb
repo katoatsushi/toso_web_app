@@ -1,0 +1,31 @@
+<%= form_for  @building, url: building_path  do |f| %>
+
+<table class="type10">
+    <tbody>
+	<tr>
+        <th style="font-size: 25px"><%= f.label :物件名称 %></th>
+        <td><%= f.text_field :building_name, placeholder: "   物件名称", :size => "80%" %></td>
+    </tr>
+    <tr>
+        <th style="font-size: 25px"><%= f.label :所在地 %></th> 
+        <td><%= f.text_field :building_place, placeholder: "   所在地", :size => "80%" %></td>
+    </tr>
+    <tr>
+        <th style="font-size: 25px"><%= f.label :築年数 %></th>
+        <td><%= f.text_field :building_year, placeholder: "   建物の年齢", :size => "30*60" %></td>
+    </tr>
+    <tr>
+    	<th style="font-size: 25px"><%=  f.label :物件規模 %></th>
+        <td><%= f.text_field :building_scale, placeholder: "   建物の大きさ", :size => "30*60" %></td>
+    </tr>
+    <tr>
+        <th style="font-size: 25px"><%= f.label :物件種別 %></th>
+        <td><%= f.text_field :building_construction, placeholder: "   建物の種類", :size => "40%" %></td>
+    </tr>
+    </tbody>
+</table>
+
+<%=f.submit '次 へ', class: 'btn btn-primary btn-lg' %>
+
+<%end%>
+

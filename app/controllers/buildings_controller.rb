@@ -33,9 +33,17 @@ class BuildingsController < ApplicationController
 
 
   def edit
+    @building = Building.find(params[:id])
   end
 
   def update
+    @building = Building.find(params[:id])
+    @building.update_attributes(building_params)
+    if @building.save
+      #redirect_to root_path
+      redirect_to building_path(id: @building.id)
+    end
+
   end
   
 
