@@ -52,7 +52,7 @@ class BuildingsController < ApplicationController
     def building_params
       params
       .require(:building)
-      .permit(:building_name, :building_place, :buliding_year, :buliding_scale, :building_type ,:building_construction)
+      .permit(:building_name, :building_place, :building_year, :building_scale, :building_type ,:building_construction)
     end
     def user_id
     	current_user.id
