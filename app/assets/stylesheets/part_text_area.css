@@ -1,0 +1,165 @@
+textarea{
+	margin: 10px;
+	padding:10px;
+	font-size:25px;
+	width:95%;
+	height:180px;
+	letter-spacing: 1px;
+	border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+
+
+
+
+input, select{
+	padding: 10px 10px;
+	font-size: 18px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 1px #999;
+}
+
+p#part_cond {
+	color:#BB0000;
+	font-size:50px;
+	font-weight:900;
+}
+
+p#part_treat {
+    color:#007700;
+	font-size:50px;
+	font-weight:900;
+}
+
+p#part_details{
+
+	font-size:50px;
+	font-weight:900;
+	display:inline;
+}
+
+p#part_type{
+	color:blue;
+	font-size: 50px;
+	font-weight:600;
+	text-align: center;
+}
+.box30 {
+    margin:0;
+    /*background: #f1f1f1;*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    /*width:90%;*/
+}
+.box30 .box-title {
+    font-size: 0em;
+    background: #EEEEEE;
+    padding: 0px;
+    text-align: center;
+   /* width:90%;*/
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+
+
+/*以下、part/newの点数のセレクトボタン*/
+
+@font-face{font-family:"IonIcons";src:url("//code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.eot?v=2.0.1");src:url("//code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.eot?v=2.0.1#iefix") format("embedded-opentype"),url("//code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.ttf?v=2.0.1") format("truetype"),url("//code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.woff?v=2.0.1") format("woff"),url("//code.ionicframework.com/ionicons/2.0.1/fonts/ionicons.svg?v=2.0.1#Ionicons") format("svg");font-weight:normal;font-style:normal}
+
+.pt20{
+  padding-top: 20px;
+
+}
+.inverse{
+  background: #000;
+  padding: 20px 0;
+  color: #fff;
+
+}
+.select-wrap {
+    position: relative;
+
+}
+.select-wrap:before {
+    z-index: 1;
+    position: absolute;
+    right: 240px;
+    top: 0;
+    content: "\f123";
+    font-family: "IonIcons";
+    line-height: 70px;
+    color: #7F878C;
+    pointer-events: none;
+
+}
+select{
+    outline:none;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    background: none transparent;
+    vertical-align: middle;
+    font-size: inherit;
+    color: inherit;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 60px;
+    padding: 8px 12px;
+    border:1px solid #ddd;
+    color:#828c9a;
+    width:80%;
+    border-radius:3px;
+    font-size: 30px
+}
+select option{
+  background-color: #fff;
+  color: #333;
+
+}
+select::-ms-expand {
+  display: none;
+
+}
+select:-moz-focusring { 
+  color: transparent; 
+  text-shadow: 0 0 0 #828c9a;
+
+}
+.select-wrap.select-primary:before{
+  color:#000;
+
+}
+.select-wrap.select-primary > select{
+  background:white;
+  color:#000;
+  border-color:#0084B4;
+
+}
+.select-wrap.select-primary > select:-moz-focusring { 
+  color: transparent; 
+  text-shadow: 0 0 0 #fff;
+
+}
+
+.select-wrap.select-inverse:before{
+  color:#fff;
+
+}
+.select-wrap.select-inverse > select{
+  color:#fff;
+  border-color: #fff;
+
+}
+
+.select-wrap.select-inverse > select:-moz-focusring { 
+  color: transparent; 
+  text-shadow: 0 0 0 #fff;
+
+}

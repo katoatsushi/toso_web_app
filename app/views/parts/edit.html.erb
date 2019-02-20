@@ -1,28 +1,24 @@
-<!-- @part.condition
-@part.treatment
-をvalueにぶち込む -->
-<p style="font-size:30px;,margin:0px;">
-修理場所のタイプ
-</p>
-<p style="color:blue;,font-size:30px;">
-<%= @part.detail.detail_name %>
-</p>
-<%= form_for @part, url: building_part_path do |f| %>
-	<p style=" color:red; ,font-size:50px; ,font-weight:900;">※現状</p>
-	<%#= f.text_area :cond ,value: @part.detail.condition,size: "150x10" %>
-	<%= f.text_area :cond ,value: @part.cond,size: "150x10" %>
-	<p style="color:#00FF00; ,font-size:50px; ,font-weight:900;">※リフォーム内容</p>
-	<%#= f.text_area :treat,value: @part.detail.treatment,size: "150x10" %>
-	<%= f.text_area :treat,value: @part.treat,size: "150x10" %>
-<div>
-<%= f.label :"対応する写真タイトル" %>
-<%= f.text_field :picturename %>
+<p id = "part_type"><%= @part.detail.detail_name %></p>
+<div class="box30">
+	<%= form_for @part, url: building_part_path do |f| %>
+	    <div class="box-title"><p id="part_cond" > 現状 </p></div>
+	    <%= f.text_area :cond , value: @part.cond %>
+	    <div class="box-title"><p id="part_treat" > 処置 </p></div>
+	    <%= f.text_area :treat, value: @part.treat  %>
+	     <p id = "part_detail">対応する写真タイトル </p>
+		<%= f.text_field :picturename %>
+		<div class="row">
+		    <div class="col-xs-12">
+		    点数を選択してください
+		    	
+				<div class="select-wrap select-primary">
+		  		<%= f.select :score, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7]] ,class:"form-control" %>
+				</div>
+			</div>
+		</div>
+		<div><%= f.submit "資料を作成", class: 'btn btn-primary btn-lg btn-block' %> 
+		</div>
+	<% end %>
 </div>
-<%= f.label :"点数を選択してください" %><br>
-  <%= f.select :score, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7]] ,class:"form-control" %>
-
-	<div><%= f.submit "資料を作成", class: 'btn btn-primary' %> </div>
-<% end %>
-
 
 

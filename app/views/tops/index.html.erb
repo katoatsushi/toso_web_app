@@ -1,12 +1,12 @@
-<div class="panel panel-primary">
+<div>
   <% @tops.each do |top| %>
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= top.maintitle  %></h3>
-  </div>
-    <% top.mainparts.each do |mainpart| %>
-      <div class="panel-body">
-        <%= link_to mainpart.mp_name ,new_building_top_mainpart_part_path(building_id: params[:building_id],top_id: top.id,mainpart_id: mainpart.id) %>
-      </div>
-      <% end %>
+    <div class="collection_radio_button">
+        <div class="box-top-title"><%= top.maintitle  %></div>
+        <% top.mainparts.each do |mainpart| %>
+        <div class="box-select-mainpart"><%= link_to mainpart.mp_name ,new_building_top_mainpart_part_path(building_id: params[:building_id],top_id: top.id, mainpart_id: mainpart.id) %>
+        </div> 
+        <% end %>
+    </div>
   <% end %>
 </div>
+

@@ -1,0 +1,11 @@
+.topicpath ol li {
+  /* liを横並び＆ブレットを消す */
+  display: inline;
+  list-style-type: none;
+  font-size :30px;
+}
+.topicpath ol li:after {
+  /* liの後に記号追加 */
+  content:" > ";
+  font-size :30px;
+}
