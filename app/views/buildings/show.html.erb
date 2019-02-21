@@ -46,8 +46,10 @@
 	<%= link_to "PDFで表示",
 	              building_path(@building, format: "pdf",:target=>["_blank"]), class: 'btn btn-success' %>
 	<%end%>
+	<% if @building.user_id == current_user.id %>
 	<%= link_to '建物詳細を編集', edit_building_path(@building.id), class: 'btn btn-success' %>
-	<%= link_to 'キャンセル',root_path, class: 'btn btn-default' %>
+	<%end%>
+	<%= link_to '戻る',root_path, class: 'btn btn-default' %>
 </div>
 <div>
 	♦︎<%= current_user.name %>さんログイン中♦︎
