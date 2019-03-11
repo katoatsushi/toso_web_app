@@ -13,7 +13,7 @@ class BuildingPDF
         elsif Rails.env == 'production'
           @file_date = file_path[1].to_time
         end
-        if Time.now - @file_date > 100
+        if Time.now - @file_date > 86400
           FileUtils.rm(file_name)
         end
     end
