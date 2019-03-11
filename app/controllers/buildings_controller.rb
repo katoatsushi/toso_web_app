@@ -31,6 +31,21 @@ class BuildingsController < ApplicationController
       end
   end
 
+# def show
+#   @building = Building.find(params[:id])
+#       respond_to do |format|
+#         format.html
+#         format.pdf do
+#           report = BuildingTestPDF.new(@building)
+#           send_data report.generate,
+#                     filename:    "#{@building.id}.pdf",
+#                     type:        "application/pdf",
+#                     disposition: "inline"
+#         end
+#       end
+# end
+
+
 
   def edit
     @building = Building.find(params[:id])

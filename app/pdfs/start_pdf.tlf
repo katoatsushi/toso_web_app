@@ -1,0 +1,305 @@
+{
+  "version": "0.10.0",
+  "items": [
+    {
+      "id": "",
+      "type": "rect",
+      "display": true,
+      "description": "",
+      "x": 342.1,
+      "y": 0,
+      "width": 253.1,
+      "height": 841.8,
+      "style": {
+        "border-color": "#1f1f7d",
+        "border-width": 1,
+        "border-style": "solid",
+        "fill-color": "#1f1f7d"
+      },
+      "border-radius": 0
+    },
+    {
+      "id": "",
+      "type": "rect",
+      "display": true,
+      "description": "",
+      "x": 362.1,
+      "y": 20,
+      "width": 233.1,
+      "height": 821.8,
+      "style": {
+        "border-color": "#1f2f7d",
+        "border-width": 1,
+        "border-style": "solid",
+        "fill-color": "#1f2f7d"
+      },
+      "border-radius": 0
+    },
+    {
+      "id": "",
+      "type": "rect",
+      "display": true,
+      "description": "",
+      "x": 388.1,
+      "y": 45,
+      "width": 207.1,
+      "height": 796.8,
+      "style": {
+        "border-color": "#1f3e7d",
+        "border-width": 1,
+        "border-style": "solid",
+        "fill-color": "#1f3e7d"
+      },
+      "border-radius": 0
+    },
+    {
+      "id": "",
+      "type": "rect",
+      "display": true,
+      "description": "",
+      "x": 412.1,
+      "y": 71,
+      "width": 183.1,
+      "height": 770.8,
+      "style": {
+        "border-color": "#1f4e7d",
+        "border-width": 1,
+        "border-style": "solid",
+        "fill-color": "#1f4e7d"
+      },
+      "border-radius": 0
+    },
+    {
+      "id": "",
+      "type": "rect",
+      "display": true,
+      "description": "",
+      "x": 436.1,
+      "y": 101,
+      "width": 159.1,
+      "height": 740.8,
+      "style": {
+        "border-color": "#1f5e7d",
+        "border-width": 1,
+        "border-style": "solid",
+        "fill-color": "#1f5e7d"
+      },
+      "border-radius": 0
+    },
+    {
+      "id": "",
+      "type": "rect",
+      "display": true,
+      "description": "",
+      "x": 465.1,
+      "y": 130,
+      "width": 130.1,
+      "height": 711.8,
+      "style": {
+        "border-color": "#1f6d7d",
+        "border-width": 1,
+        "border-style": "solid",
+        "fill-color": "#1f6d7d"
+      },
+      "border-radius": 0
+    },
+    {
+      "id": "",
+      "type": "rect",
+      "display": true,
+      "description": "",
+      "x": 490.1,
+      "y": 157,
+      "width": 105.1,
+      "height": 684.8,
+      "style": {
+        "border-color": "#1f7d7d",
+        "border-width": 1,
+        "border-style": "solid",
+        "fill-color": "#1f7d7d"
+      },
+      "border-radius": 0
+    },
+    {
+      "id": "",
+      "type": "rect",
+      "display": true,
+      "description": "",
+      "x": 514.1,
+      "y": 181,
+      "width": 81.1,
+      "height": 660.8,
+      "style": {
+        "border-color": "#1f7d6d",
+        "border-width": 1,
+        "border-style": "solid",
+        "fill-color": "#1f7d6d"
+      },
+      "border-radius": 0
+    },
+    {
+      "id": "",
+      "type": "rect",
+      "display": true,
+      "description": "",
+      "x": 544.1,
+      "y": 211,
+      "width": 51.1,
+      "height": 630.8,
+      "style": {
+        "border-color": "#1f7d5e",
+        "border-width": 1,
+        "border-style": "solid",
+        "fill-color": "#1f7d5e"
+      },
+      "border-radius": 0
+    },
+    {
+      "id": "",
+      "type": "rect",
+      "display": true,
+      "description": "",
+      "x": 575.2,
+      "y": 241,
+      "width": 20,
+      "height": 600.8,
+      "style": {
+        "border-color": "#1f7d3e",
+        "border-width": 1,
+        "border-style": "solid",
+        "fill-color": "#1f7d3e"
+      },
+      "border-radius": 0
+    },
+    {
+      "id": "",
+      "type": "text",
+      "display": true,
+      "description": "",
+      "x": 61,
+      "y": 726,
+      "width": 167,
+      "height": 69,
+      "style": {
+        "font-family": [
+          "Helvetica"
+        ],
+        "font-size": 60,
+        "color": "#000099",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [
+          "bold"
+        ]
+      },
+      "texts": [
+        "TDSC"
+      ]
+    },
+    {
+      "id": "",
+      "type": "text",
+      "display": true,
+      "description": "",
+      "x": 64,
+      "y": 787,
+      "width": 182.1,
+      "height": 13,
+      "style": {
+        "font-family": [
+          "Helvetica"
+        ],
+        "font-size": 10,
+        "color": "#000099",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [
+          "bold"
+        ]
+      },
+      "texts": [
+        "TOSO DEVELOPMENT&COMPANY"
+      ]
+    },
+    {
+      "id": "",
+      "type": "text",
+      "display": true,
+      "description": "",
+      "x": 88.1,
+      "y": 394,
+      "width": 165,
+      "height": 47,
+      "style": {
+        "font-family": [
+          "IPAGothic"
+        ],
+        "font-size": 30,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": []
+      },
+      "texts": [
+        "建物診断書"
+      ]
+    },
+    {
+      "id": "building_name",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 20,
+      "y": 343,
+      "width": 325.1,
+      "height": 35,
+      "style": {
+        "font-family": [
+          "IPAGothic"
+        ],
+        "font-size": 30,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [
+          "bold"
+        ],
+        "overflow": "expand",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": true,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    }
+  ],
+  "state": {
+    "layout-guides": []
+  },
+  "title": "a",
+  "report": {
+    "paper-type": "A4",
+    "orientation": "portrait",
+    "margin": [
+      20,
+      20,
+      20,
+      20
+    ]
+  }
+}

@@ -3,17 +3,55 @@ class BuildingPDF
   def self.create building
  
     report = Thinreports::Report.create do |r|
+        building_contents_for_first_page = {building_name: "#{building.building_name}"}
+        r.start_new_page :layout => File.join('app', 'pdfs', 'start_pdf.tlf') do |page|
+          page.values(building_contents_for_first_page)
+        end
+        r.start_new_page :layout => File.join('app', 'pdfs', 'pdf_test.tlf') do |page|
+          page.values(building_contents_for_first_page)
+        end
 
       building_contents = {building_name: "#{building.building_name}",building_place: "#{building.building_place}",building_yaer: "築#{building.building_year}年",
                         building_scale: "#{building.building_scale}",building_type: "#{building.building_type}",building_construction: "#{building.building_construction}"}
- 
+
       building.parts.each do |part|
-        part_contents = {condition: "#{part.cond}", treatment: "#{part.treat}", score: part.score, degraded_state: "現状",part_type: "#{part.part_type}"}
-        r.start_new_page :layout => File.join('app', 'pdfs', 'toso_pdf.tlf') do |page|
+        cond = part.cond
+        treat = part.treat
+        if cond.include?("\r\n")
+          cond.delete!("\r\n")
+        end
+        if treat.include?("\r\n")
+          treat.delete!("\r\n")
+        end
+
+        part_contents = {condition: "#{cond}", treatment: "#{treat}", score: part.score, degraded_state: "現状",part_type: "#{part.part_type}"}
+#実験
+#\r\nが改行
+   # 150 ~ 200, 150 ~ 200
+        #if cond.length > 150 && cond.length < 210 && treat.length > 150 && treat.length < 210
+          if cond.length > 150 && treat.length > 150
+        r.start_new_page :layout => File.join('app', 'pdfs', 'max_max',"max_max_#{part.score}.tlf") do |page|
           page.values(part_contents)
         end
+      elsif cond.length <= 90 && treat.length <= 90 
+        r.start_new_page :layout => File.join('app', 'pdfs','min_min', "min_min_#{part.score}.tlf") do |page|
+          page.values(part_contents)
+          #page.values(part_test_contents)
       end
-      
+      elsif cond.length > 150 && treat.length <= 150 
+        r.start_new_page :layout => File.join('app', 'pdfs', 'max_min',"max_min_#{part.score}.tlf") do |page|
+          page.values(part_contents)
+        end
+      elsif cond.length <= 150 && treat.length > 150 
+        r.start_new_page :layout => File.join('app', 'pdfs', 'min_max',"min_max_#{part.score}.tlf") do |page|
+          page.values(part_contents)
+        end
+      elsif  cond.length <= 150  &&  treat.length <= 150 
+        r.start_new_page :layout => File.join('app', 'pdfs', 'default',"default_#{part.score}.tlf") do |page|
+          page.values(part_contents)
+        end
+    end
+  end
       #資料をまだ追加してないとき、資料のタイプが３つ未満の場合グラフを作成できないので、グラフ作成できない
       if building.parts.group(:part_type).average(:score).keys.count > 2
 

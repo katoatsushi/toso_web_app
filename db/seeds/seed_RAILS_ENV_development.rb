@@ -1,4 +1,7 @@
 #RAILS_ENV=production
+
+User.create(email: "6@gmail.com", password: "666666")
+
 Top.create(maintitle: "this is top")
 
 Mainpart.create(mp_name: "外壁",top_id: 1)
