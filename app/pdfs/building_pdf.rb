@@ -27,29 +27,29 @@ class BuildingPDF
         end
 
         part_contents = {condition: "#{cond}", treatment: "#{treat}", score: part.score, degraded_state: "現状",part_type: "#{part.part_type}"}
-      if cond.length > 150 && treat.length > 150
-        r.start_new_page :layout => File.join('app', 'pdfs', 'max_max',"max_max_#{part.score}.tlf") do |page|
-          page.values(part_contents)
+        if cond.length > 150 && treat.length > 150
+          r.start_new_page :layout => File.join('app', 'pdfs', 'max_max',"max_max_#{part.score}.tlf") do |page|
+            page.values(part_contents)
+          end
+        elsif cond.length <= 90 && treat.length <= 90 
+          r.start_new_page :layout => File.join('app', 'pdfs','min_min', "min_min_#{part.score}.tlf") do |page|
+            page.values(part_contents)
+            #page.values(part_test_contents)
         end
-      elsif cond.length <= 90 && treat.length <= 90 
-        r.start_new_page :layout => File.join('app', 'pdfs','min_min', "min_min_#{part.score}.tlf") do |page|
-          page.values(part_contents)
-          #page.values(part_test_contents)
+        elsif cond.length > 150 && treat.length <= 150 
+          r.start_new_page :layout => File.join('app', 'pdfs', 'max_min',"max_min_#{part.score}.tlf") do |page|
+            page.values(part_contents)
+          end
+        elsif cond.length <= 150 && treat.length > 150 
+          r.start_new_page :layout => File.join('app', 'pdfs', 'min_max',"min_max_#{part.score}.tlf") do |page|
+            page.values(part_contents)
+          end
+        elsif  cond.length <= 150  &&  treat.length <= 150 
+          r.start_new_page :layout => File.join('app', 'pdfs', 'default',"default_#{part.score}.tlf") do |page|
+            page.values(part_contents)
+          end
+        end
       end
-      elsif cond.length > 150 && treat.length <= 150 
-        r.start_new_page :layout => File.join('app', 'pdfs', 'max_min',"max_min_#{part.score}.tlf") do |page|
-          page.values(part_contents)
-        end
-      elsif cond.length <= 150 && treat.length > 150 
-        r.start_new_page :layout => File.join('app', 'pdfs', 'min_max',"min_max_#{part.score}.tlf") do |page|
-          page.values(part_contents)
-        end
-      elsif  cond.length <= 150  &&  treat.length <= 150 
-        r.start_new_page :layout => File.join('app', 'pdfs', 'default',"default_#{part.score}.tlf") do |page|
-          page.values(part_contents)
-        end
-    end
-  end
       #資料をまだ追加してないとき、資料のタイプが３つ未満の場合グラフを作成できないので、グラフ作成できない
       if building.parts.group(:part_type).average(:score).keys.count > 2
 
@@ -57,34 +57,38 @@ class BuildingPDF
           @score = building.parts.group(:part_type).average(:score)
           @avarage_score = @score.values.sum/@score.keys.count
             #グラフの作成
-            g = Gruff::Spider.new(7, '445x295')
-            g.font = "vendor/fonts/ipaexg.ttf"
-            g.maximum_value = 6.0
-            g.minimum_value = 0
-            g.no_data_message = 'データがありません'
-            @score.each do |key ,value|
-              value = value.to_f
-              g.data "#{key}", [value]
-            end
-            g.data "屋根" ,[7.0]
-            g.theme_keynote
-            g.bottom_margin = 80
-            g.top_margin = 80
-            g.legend_font_size = 35
-            #file_name = "#{Rails.root}/public/images/buildingGraph_" + g.object_id.to_s + '.png'
+          g = Gruff::Spider.new(7, '445x295')
+          g.font = "vendor/fonts/ipaexg.ttf"
+          g.maximum_value = 6.0
+          g.minimum_value = 0
+          g.no_data_message = 'データがありません'
+          @score.each do |key ,value|
+            value = value.to_f
+            g.data "#{key}", [value]
+          end
+          g.data "屋根" ,[7.0]
+          g.theme_keynote
+          g.bottom_margin = 80
+          g.top_margin = 80
+          g.legend_font_size = 35
 
-            file_name = "#{Rails.root}/public/images/buildingGraph_" + Time.now.to_s + "_"+ g.object_id.to_s + ".png"
-
-            g.write(file_name)
-            # g.write(filename=File.expand_path("graphs/#{g.object_id}.png"))
-            # @gruff_img = {image: "graphs/#{g.object_id}.png"}
-            @gruff_img = {image: file_name}
-            last_page.values(@gruff_img)
+          file_name = "#{Rails.root}/public/images/buildingGraph_" + Time.now.to_s + "_"+ g.object_id.to_s + ".png"
+          g.write(file_name)
+          @gruff_img = {image: file_name}
+          last_page.values(@gruff_img)
         end
       end
-end
+    end
+    #1日以上前のグラフの写真がある場合、新しいPDFを作成するときに自動的に古いPDFを削除する
+    Dir.glob("#{Rails.root}/public/images/*").each do |file_name|
+        file_path = file_name.split("_")
+        @file_date = file_path[2].to_time
+        if Time.now - @file_date > 86400
+          FileUtils.rm(file_name)
+        end
+    end
+    #ここまで
     return report
-
   end
 
 end
