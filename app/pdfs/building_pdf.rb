@@ -18,8 +18,10 @@ class BuildingPDF
 
       Dir.glob("#{Rails.root}/app/assets/images/*").each do |file_name|
         file_path = file_name.split("_")
-        @file_date = file_path[2].to_time
-      building_contents_for_first_page = {building_name: "#{@file_date}"}
+        #@file_date = file_path[2].to_time
+
+        building_contents_for_first_page = {building_name: "#{file_path}"}
+        #building_contents_for_first_page = {building_name: "#{file_name}"}
         r.start_new_page :layout => File.join('app', 'pdfs', 'start_pdf.tlf') do |page|
           page.values(building_contents_for_first_page)
         end
