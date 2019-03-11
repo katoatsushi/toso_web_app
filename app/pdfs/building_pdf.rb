@@ -18,17 +18,6 @@ class BuildingPDF
     #ここまで
     
     report = Thinreports::Report.create do |r|
-      
-      #これは後で消す
-      Dir.glob("#{Rails.root}/app/assets/images/*").each do |file_name|
-        file_path = file_name.split("_")
-        @file_date = file_path
-        building_contents_for_first_page = {building_name: "#{@file_date}"}
-        r.start_new_page :layout => File.join('app', 'pdfs', 'start_pdf.tlf') do |page|
-          page.values(building_contents_for_first_page)
-        end
-      end
-      #ここまで
 
         building_contents_for_first_page = {building_name: "#{building.building_name}"}
         r.start_new_page :layout => File.join('app', 'pdfs', 'start_pdf.tlf') do |page|
