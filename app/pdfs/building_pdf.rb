@@ -18,7 +18,7 @@ class BuildingPDF
 
       Dir.glob("#{Rails.root}/app/assets/images/*").each do |file_name|
         file_path = file_name.split("_")
-        @file_date = file_path[1].to_time
+        @file_date = file_path
 
         building_contents_for_first_page = {building_name: "#{@file_date}"}
         #building_contents_for_first_page = {building_name: "#{file_name}"}
