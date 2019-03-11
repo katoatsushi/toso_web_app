@@ -1,7 +1,18 @@
 class BuildingPDF
 
+  require "fileutils"
+
   def self.create building
- 
+
+    #1日以上前のグラフの写真がある場合、新しいPDFを作成するときに自動的に古いPDFを削除する
+    Dir.glob("#{Rails.root}/public/images/*").each do |file_name|
+        file_path = file_name.split("_")
+　　　　　@file_date = file_path[2].to_time
+        if Time.now - @file_date > 86400
+          FileUtils.rm(file_name)
+        end
+    end
+    #ここまで
     report = Thinreports::Report.create do |r|
         building_contents_for_first_page = {building_name: "#{building.building_name}"}
         r.start_new_page :layout => File.join('app', 'pdfs', 'start_pdf.tlf') do |page|
@@ -69,18 +80,18 @@ class BuildingPDF
             g.bottom_margin = 80
             g.top_margin = 80
             g.legend_font_size = 35
-            file_name = "#{Rails.root}/public/images/buildingGraph_" + g.object_id.to_s + '.png'
+            #file_name = "#{Rails.root}/public/images/buildingGraph_" + g.object_id.to_s + '.png'
+
+            file_name = "#{Rails.root}/public/images/buildingGraph_" + Time.now.to_s + "_"+ g.object_id.to_s + ".png"
+
             g.write(file_name)
             # g.write(filename=File.expand_path("graphs/#{g.object_id}.png"))
             # @gruff_img = {image: "graphs/#{g.object_id}.png"}
             @gruff_img = {image: file_name}
             last_page.values(@gruff_img)
         end
-
       end
-
-    end
-
+end
     return report
 
   end
