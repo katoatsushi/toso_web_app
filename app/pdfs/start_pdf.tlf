@@ -228,32 +228,6 @@
       ]
     },
     {
-      "id": "",
-      "type": "text",
-      "display": true,
-      "description": "",
-      "x": 88.1,
-      "y": 394,
-      "width": 165,
-      "height": 47,
-      "style": {
-        "font-family": [
-          "IPAGothic"
-        ],
-        "font-size": 30,
-        "color": "#000000",
-        "text-align": "left",
-        "vertical-align": "top",
-        "line-height": "",
-        "line-height-ratio": "",
-        "letter-spacing": "",
-        "font-style": []
-      },
-      "texts": [
-        "建物診断書"
-      ]
-    },
-    {
       "id": "building_name",
       "type": "text-block",
       "display": true,

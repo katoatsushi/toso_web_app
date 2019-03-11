@@ -16,18 +16,15 @@ class BuildingPDF
     
     report = Thinreports::Report.create do |r|
       Dir.glob("#{Rails.root}/app/assets/images/*").each do |file_name|
-      # file_path = file_name.split("_")
-
-      # @file_date = file_path[2]
-      building_contents_for_first_page = {file_date: "#{file_name}", time: "#{file_name}"}
-        r.start_new_page :layout => File.join('app', 'pdfs', 'time.tlf') do |page|
+      building_contents_for_first_page = {building_name: "#{file_name}"}
+        r.start_new_page :layout => File.join('app', 'pdfs', 'start_pdf.tlf') do |page|
           page.values(building_contents_for_first_page)
         end
       end
         building_contents_for_first_page = {building_name: "#{building.building_name}"}
-        # r.start_new_page :layout => File.join('app', 'pdfs', 'start_pdf.tlf') do |page|
-        #   page.values(building_contents_for_first_page)
-        # end
+        r.start_new_page :layout => File.join('app', 'pdfs', 'start_pdf.tlf') do |page|
+          page.values(building_contents_for_first_page)
+        end
         r.start_new_page :layout => File.join('app', 'pdfs', 'pdf_test.tlf') do |page|
           page.values(building_contents_for_first_page)
         end
