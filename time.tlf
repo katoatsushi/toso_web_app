@@ -1,0 +1,135 @@
+{
+  "version": "0.10.0",
+  "items": [
+    {
+      "id": "file_date",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 63.1,
+      "y": 176,
+      "width": 370,
+      "height": 11.5,
+      "style": {
+        "font-family": [
+          "Helvetica"
+        ],
+        "font-size": 10,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "time",
+      "type": "text-block",
+      "display": true,
+      "description": "",
+      "x": 75.1,
+      "y": 344,
+      "width": 364,
+      "height": 11.5,
+      "style": {
+        "font-family": [
+          "Helvetica"
+        ],
+        "font-size": 10,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": [],
+        "overflow": "truncate",
+        "word-wrap": "none"
+      },
+      "reference-id": "",
+      "value": "",
+      "multiple-line": false,
+      "format": {
+        "base": "",
+        "type": ""
+      }
+    },
+    {
+      "id": "",
+      "type": "text",
+      "display": true,
+      "description": "",
+      "x": 66.1,
+      "y": 103,
+      "width": 192,
+      "height": 46,
+      "style": {
+        "font-family": [
+          "Helvetica"
+        ],
+        "font-size": 40,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": []
+      },
+      "texts": [
+        "@file_date"
+      ]
+    },
+    {
+      "id": "",
+      "type": "text",
+      "display": true,
+      "description": "",
+      "x": 72.1,
+      "y": 265,
+      "width": 176,
+      "height": 46,
+      "style": {
+        "font-family": [
+          "Helvetica"
+        ],
+        "font-size": 40,
+        "color": "#000000",
+        "text-align": "left",
+        "vertical-align": "top",
+        "line-height": "",
+        "line-height-ratio": "",
+        "letter-spacing": "",
+        "font-style": []
+      },
+      "texts": [
+        "Time.now"
+      ]
+    }
+  ],
+  "state": {
+    "layout-guides": []
+  },
+  "title": "time",
+  "report": {
+    "paper-type": "A4",
+    "orientation": "portrait",
+    "margin": [
+      20,
+      20,
+      20,
+      20
+    ]
+  }
+}
