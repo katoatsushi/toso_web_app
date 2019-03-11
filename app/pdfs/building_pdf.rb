@@ -3,16 +3,16 @@ class BuildingPDF
   require "fileutils"
 
   def self.create building
-    # #1日以上前のグラフの写真がある場合、新しいPDFを作成するときに自動的に古いPDFを削除する
-    # # Dir.glob("#{Rails.root}/public/images/*").each do |file_name|
-    #  Dir.glob("#{Rails.root}/app/assets/images/*").each do |file_name|
-    #     file_path = file_name.split("_")
-    #     @file_date = file_path[2].to_time
-    #     if Time.now - @file_date > 86400
-    #       FileUtils.rm(file_name)
-    #     end
-    # end
-    # #ここまで
+    #1日以上前のグラフの写真がある場合、新しいPDFを作成するときに自動的に古いPDFを削除する
+    # Dir.glob("#{Rails.root}/public/images/*").each do |file_name|
+     Dir.glob("#{Rails.root}/app/assets/images/*").each do |file_name|
+        # file_path = file_name.split("_")
+        # @file_date = file_path[2].to_time
+        # if Time.now - @file_date > 86400
+        #   FileUtils.rm(file_name)
+        # end
+    end
+    #ここまで
     
     report = Thinreports::Report.create do |r|
         building_contents_for_first_page = {building_name: "#{building.building_name}"}
