@@ -25,11 +25,7 @@ class BuildingPDF
         end
 
         part_contents = {condition: "#{cond}", treatment: "#{treat}", score: part.score, degraded_state: "現状",part_type: "#{part.part_type}"}
-#実験
-#\r\nが改行
-   # 150 ~ 200, 150 ~ 200
-        #if cond.length > 150 && cond.length < 210 && treat.length > 150 && treat.length < 210
-          if cond.length > 150 && treat.length > 150
+      if cond.length > 150 && treat.length > 150
         r.start_new_page :layout => File.join('app', 'pdfs', 'max_max',"max_max_#{part.score}.tlf") do |page|
           page.values(part_contents)
         end
@@ -73,8 +69,11 @@ class BuildingPDF
             g.bottom_margin = 80
             g.top_margin = 80
             g.legend_font_size = 35
-            g.write(filename=File.expand_path("graphs/#{g.object_id}.png"))
-            @gruff_img = {image: "graphs/#{g.object_id}.png"}
+            file_name = "#{Rails.root}/public/images/buildingGraph_" + g.object_id.to_s + '.png'
+            g.write(file_name)
+            # g.write(filename=File.expand_path("graphs/#{g.object_id}.png"))
+            # @gruff_img = {image: "graphs/#{g.object_id}.png"}
+            @gruff_img = {image: file_name}
             last_page.values(@gruff_img)
         end
 
