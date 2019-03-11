@@ -7,7 +7,7 @@ class BuildingPDF
     #1日以上前のグラフの写真がある場合、新しいPDFを作成するときに自動的に古いPDFを削除する
     Dir.glob("#{Rails.root}/public/images/*").each do |file_name|
         file_path = file_name.split("_")
-　　　　　@file_date = file_path[2].to_time
+        @file_date = file_path[2].to_time
         if Time.now - @file_date > 86400
           FileUtils.rm(file_name)
         end
