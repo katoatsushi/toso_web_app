@@ -72,6 +72,7 @@ class BuildingPDF
           end
         end
       end
+      
       #資料をまだ追加してないとき、資料のタイプが３つ未満の場合グラフを作成できないので、グラフ作成できない
       if building.parts.group(:part_type).average(:score).keys.count > 2
 
