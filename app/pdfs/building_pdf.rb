@@ -35,11 +35,9 @@ class BuildingPDF
       building.reforms.each do |f|
         @num += 1
         contents = {"reform_part_#{@num}":"#{f.reform_part}", "reform_material_#{@num}":"#{f.reform_material}", "reform_fin_mate_#{@num}":"#{f.reform_working_out}"}.symbolize_keys
-
         @reform_contents.merge!(contents)
       end
       intro_contents = @reform_contents.merge!(building_contents)
-
       r.start_new_page :layout => File.join('app', 'pdfs', 'intro_pdf.tlf') do |page|
         page.values(intro_contents)
       end
