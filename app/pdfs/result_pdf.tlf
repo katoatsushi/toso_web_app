@@ -24,12 +24,12 @@
       "display": true,
       "description": "",
       "x": 123.1,
-      "y": 30,
+      "y": 25,
       "width": 365,
       "height": 46,
       "style": {
         "font-family": [
-          "Helvetica"
+          "IPAGothic"
         ],
         "font-size": 40,
         "color": "#ffffff",
@@ -38,7 +38,9 @@
         "line-height": "",
         "line-height-ratio": "",
         "letter-spacing": 8,
-        "font-style": []
+        "font-style": [
+          "bold"
+        ]
       },
       "texts": [
         "診断結果"
@@ -89,7 +91,7 @@
       "height": 49,
       "style": {
         "font-family": [
-          "Helvetica"
+          "IPAGothic"
         ],
         "font-size": 40,
         "color": "#ffffff",
@@ -98,7 +100,9 @@
         "line-height": "",
         "line-height-ratio": "",
         "letter-spacing": 10,
-        "font-style": []
+        "font-style": [
+          "bold"
+        ]
       },
       "texts": [
         "総"
@@ -115,7 +119,7 @@
       "height": 46,
       "style": {
         "font-family": [
-          "Helvetica"
+          "IPAGothic"
         ],
         "font-size": 40,
         "color": "#ffffff",
@@ -124,7 +128,9 @@
         "line-height": "",
         "line-height-ratio": "",
         "letter-spacing": "",
-        "font-style": []
+        "font-style": [
+          "bold"
+        ]
       },
       "texts": [
         "評"

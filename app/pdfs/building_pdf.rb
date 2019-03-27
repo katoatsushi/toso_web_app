@@ -20,15 +20,28 @@ class BuildingPDF
     report = Thinreports::Report.create do |r|
 
         building_contents_for_first_page = {building_name: "#{building.building_name}"}
-        r.start_new_page :layout => File.join('app', 'pdfs', 'start_pdf.tlf') do |page|
-          page.values(building_contents_for_first_page)
-        end
         r.start_new_page :layout => File.join('app', 'pdfs', 'pdf_test.tlf') do |page|
           page.values(building_contents_for_first_page)
         end
 
-      building_contents = {building_name: "#{building.building_name}",building_place: "#{building.building_place}",building_yaer: "築#{building.building_year}年",
+
+      building_contents = {building_name: "#{building.building_name}",building_place: "#{building.building_place}",building_year: "築#{building.building_year}年",
                         building_scale: "#{building.building_scale}",building_type: "#{building.building_type}",building_construction: "#{building.building_construction}"}
+      @reform_contents = {}
+      #@box = []
+      @num = 0
+  
+      building.reforms.each do |f|
+        @num += 1
+        contents = {"reform_part_#{@num}":"#{f.reform_part}", "reform_material_#{@num}":"#{f.reform_material}", "reform_fin_mate_#{@num}":"#{f.reform_working_out}"}.symbolize_keys
+        #@box << contents
+        @reform_contents.merge!(contents)
+      end
+      intro_contents = @reform_contents.merge!(building_contents)
+      #r.start_new_page :layout => File.join('app', 'pdfs', 'introduction',"intro_#{building.reforms.count}.tlf") do |page|
+      r.start_new_page :layout => File.join('app', 'pdfs', 'intro_pdf.tlf') do |page|
+        page.values(intro_contents)
+      end
 
       building.parts.each do |part|
         cond = part.cond
@@ -98,6 +111,7 @@ class BuildingPDF
     end
     return report
   end
+
 
 end
 

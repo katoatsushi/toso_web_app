@@ -181,7 +181,7 @@
         "font-style": [
           "bold"
         ],
-        "overflow": "truncate",
+        "overflow": "fit",
         "word-wrap": "none"
       },
       "reference-id": "",
