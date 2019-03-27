@@ -9,7 +9,9 @@
 
 
 <div>
+
 	<%= form_for @part, url: building_parts_path(building_id: params[:building_id], detail_id: params[:detail_id]) do |f| %>
+	<%= render 'layouts/error_messages', model: f.object %>
 		<% Material.where(top_id: params[:top_id],mainpart_id: params[:mainpart_id]).each do |material|%>
 			<div class="collection_radio_button">
 				<div class="box-title"><%= material.mate_name %></div>
