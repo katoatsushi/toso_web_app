@@ -24,11 +24,9 @@ class BuildingPDF
           page.values(building_contents_for_first_page)
         end
 
-
       building_contents = {building_name: "#{building.building_name}",building_place: "#{building.building_place}",building_year: "築#{building.building_year}年",
                         building_scale: "#{building.building_scale}",building_type: "#{building.building_type}",building_construction: "#{building.building_construction}"}
       @reform_contents = {}
-
       @num = 0
   
       building.reforms.each do |f|
