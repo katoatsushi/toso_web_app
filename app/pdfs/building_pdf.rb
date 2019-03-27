@@ -16,7 +16,6 @@ class BuildingPDF
         end
     end
     #ここまで
-    
 
     report = Thinreports::Report.create do |r|
 
