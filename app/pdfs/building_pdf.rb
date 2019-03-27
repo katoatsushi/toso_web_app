@@ -57,7 +57,6 @@ class BuildingPDF
         elsif cond.length <= 90 && treat.length <= 90 
           r.start_new_page :layout => File.join('app', 'pdfs','min_min', "min_min_#{part.score}.tlf") do |page|
             page.values(part_contents)
-            #page.values(part_test_contents)
         end
         elsif cond.length > 150 && treat.length <= 150 
           r.start_new_page :layout => File.join('app', 'pdfs', 'max_min',"max_min_#{part.score}.tlf") do |page|
