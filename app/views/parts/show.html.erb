@@ -1,29 +1,45 @@
 
 <div class="mainbox"> <%= @part.building.building_name %> > <%=Detail.find(@part.detail.id).detail_name%></div>
-<table class="type10">
-    <tbody>
-	<tr>
-        <th style="font-size: 30px; background-color:#BB0000">現状</th>
-        <td style="font-size: 20px; border : solid 2px"><%= @part.cond %></td>
-    </tr>
-    <tr>
-        <th style="font-size: 30px">処置</th> 
-        <td style="font-size: 20px; border : solid 2px"><%= @part.treat %></td>
-    </tr>
-    <tr>
-        <th style="font-size: 20px; background-color: #005500">写真タイトル</th>
-        <td style="font-size: 15px; border : solid 2px">	
-        <% if @part.picturename.blank? %>
-		不明
-	　　　<% else %>
-		写真タイトル<%= @part.picturename %>
-	<% end %>
-	</td>
-    </tr>
-    </tbody>
-</table>
+
+
+ <div class="col-md-12">
+        <table class="table">
+
+            <tbody>
+                <tr>
+                    <th class="table-danger" style="font-size: 1.5em; text-align: center;">現状</th>
+                    <td><%= @part.cond %></td>
+                    <% if @part.building.user.id == current_user.id %>
+                    <td><%= link_to "編集",edit_building_part_path ,method: :get ,class: 'btn btn-success'%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <th class="table-primary" style="font-size: 1.5em; text-align: center;">処置</th>
+                    <td><%= @part.treat %></td>
+                    <% if @part.building.user.id == current_user.id %>
+                    <td><%= link_to "編集",edit_building_part_path ,method: :get ,class: 'btn btn-success'%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <th class="table-muted" style="font-size: 1.5em; text-align: center;">点数</th>
+                    <td ><%= @part.score %>点</td>
+                    <% if @part.building.user.id == current_user.id %>
+                    <td><%= link_to "編集",edit_building_part_path ,method: :get ,class: 'btn btn-success'%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <th class="table-success" style="font-size: 1.5em; text-align: center;">写真ファイル名</th>
+                    <td><% if @part.picturename.blank? %>不明
+                        <% else %>写真タイトル<%= @part.picturename %>
+                        <% end %>
+                    </td>
+                    <% if @part.building.user.id == current_user.id %>
+                    <td><%= link_to "編集",edit_building_part_path ,method: :get ,class: 'btn btn-success'%></td>
+                    <% end %>
+                </tr>
+            </tbody>
+        </table>
+
 <% if @part.building.user.id == current_user.id %>
-	<button type="button" class="btn btn-success btn-lg"><%= link_to "削除",building_part_path ,method: :delete %></button>
-	<button type="button" class="btn btn-danger btn-lg">
-<%= link_to "編集",edit_building_part_path ,method: :get %></button>
+ <div><%= link_to "削除",building_part_path ,method: :delete ,class: "btn btn-danger btn-block"%></div>
 <% end %>

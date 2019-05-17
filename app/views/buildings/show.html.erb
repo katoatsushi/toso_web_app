@@ -1,56 +1,95 @@
-<table>
-  <tr>
-    <th style="font-size: 15px">♦︎建物のお名前♦︎</th>
-    <td style="font-size: 18px"><%= @building.building_name %></td>
-  </tr>
-  <% @building.reforms.each do |r|%>
-  <tr>
-    <th style="font-size: 15px">♦︎各部位の素材/仕上げ素材について♦︎</th>
-    <td style="font-size: 18px"><%= r.reform_part %> &nbsp&nbsp<%= r.reform_material %>/<%= r.reform_working_out %>
-    	<% if r.building.user.id == current_user.id %>
-		<%= link_to "削除", building_reform_path(building_id: @building.id, id: r.id), method: :delete %>
-		<%= link_to "編集", edit_building_reform_path(building_id: @building.id, id: r.id),method: :get %>
-		<% end %>
-    </td>
-  </tr>
-  <%end%>
-</table>
 
-<div class="mainbox" style="background-color: #1E90FF;">♦︎各部位の資料♦︎</div>
-<div class="box30">
+<div class="mainbox" style="background-color: #1E90FF;">♦︎<%= @building.building_name %>♦︎</div>
+<div style="margin: 10px;">
+	<div class="container">
+	    <div class="col-md-12">
+			<div class="table-responsive">
+				<table class="table table-striped table-bordered">
+					<thead>
+					    <tr>
+					        <th>部位</th>
+					        <th>素材</th>
+					        <th>仕上げ材</th>
+					    </tr>
+					</thead>
+					<% @building.reforms.each do |r|%>
+						<tbody>
+						    <tr>
+						        <td class="col-xs-2"><%= r.reform_part %></td>
+						        <td class="col-xs-2"><%= r.reform_material %></td>
+						        <td class="col-xs-2"><%= r.reform_working_out %></td>
 
-    <div class="row">
-		<% @building.parts.each do |p| %>
-        <div class="col-xs-4 col-md-3">
-        <div class = 'building_document'>
-		<%= link_to  building_part_path(building_id: params[:id],id: p.id) do %>
-			<%= p.detail.detail_name %>
-			<div>
-				<%= p.building.user.name %>さんの資料
-		    </div>
-	    <% end %>
+						        <% if r.building.user.id == current_user.id %>
+
+						         <td class="col-xs-1"><%= link_to "削除", building_reform_path(building_id: @building.id, id: r.id), method: :delete ,class: "btn btn-danger" %></td>
+		
+						         <td class="col-xs-1"><%= link_to "編集", edit_building_reform_path(building_id: @building.id, id: r.id),method: :get ,class: "btn btn-success"%></td>
+								<% end %>
+						    </tr>
+						</tbody>
+					<% end %>
+				</table>
+			</div>
 		</div>
-	    </div>
-	    <% end %>
-    </div>
-
+	</div>
 </div>
-
 
 <% if @building.user_id == current_user.id %>
-	<%= link_to '♦︎各部位の資料♦︎を追加する', building_tops_path(building_id:  params[:id]), class: 'btn btn-primary' %>
-	<%= link_to '♦︎各部位の素材/仕上げ素材について♦︎を追加' ,new_building_reform_path(building_id: params[:id]), class: 'btn btn-primary' %>
+	<%= link_to '♦︎各部位の素材/仕上げ素材♦︎を追加' ,new_building_reform_path(building_id: params[:id]), class: 'btn btn-primary btn-lg ' %>
+	<%= link_to '建物詳細を編集', edit_building_path(@building.id), class: 'btn btn-success btn-lg ' %>
 <% end %>
+
+
+<div class="mainbox" style="background-color: #1E90FF;">♦︎内容♦︎</div>
+
+<div class="container">
+<% if @building.parts.present? %>
+
+	    <div class="col-xs-12">
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered">
+
+					    <thead>
+					        <tr>
+					        	<th>資料</th>
+					            <th>現状</th>
+					            <th>処置</th>
+					            <th>点数</th>
+					            <th>写真ファイル名</th>
+					        </tr>
+					    </thead>
+					    <% @building.parts.each do |p| %>
+						    <tbody>
+						        <tr>
+
+						            <td class="col-xs-2"><%= link_to "#{p.detail.detail_name}・#{p.part_type}", building_part_path(building_id: params[:id],id: p.id) , class: 'btn btn-info btn-lg' %></td>					
+						            <td class="col-xs-3"><%= truncate(p.cond, length:40,omission: "...") %></td>
+						            <td class="col-xs-3"><%= truncate(p.treat, length:40,omission: "...") %></td>
+		
+						            <td class="col-xs-1" style="text-align: center"><%= p.score %></td>
+
+									<td class="col-xs-2"><%= p.picturename %></td>
+
+						
+						        </tr>
+						    </tbody>
+					    <% end %>
+					</table>
+				</div>
+		</div>
+
+<% end %>
+</div>
+
+
+
 <div>
-	<% if !@building.parts.blank? %>
-	<%= link_to "PDFで表示",
-	              building_path(@building, format: "pdf",:target=>["_blank"]), class: 'btn btn-success' %>
-	<%end%>
-	<% if @building.user_id == current_user.id %>
-	<%= link_to '建物詳細を編集', edit_building_path(@building.id), class: 'btn btn-success' %>
-	<%end%>
-	<%= link_to '戻る',root_path, class: 'btn btn-default' %>
+<%= link_to '新規作成', building_tops_path(building_id:  params[:id]), class: 'btn btn-primary btn-lg btn-block' %>
 </div>
 <div>
-	♦︎<%= current_user.name %>さんログイン中♦︎
+	<% if !@building.parts.blank? %>
+		<%= link_to "PDFで表示",building_path(@building, format: "pdf",:target=>["_blank"]), class: 'btn btn-success btn-lg' %>
+	<%end%>
+	<%= link_to '戻る',root_path, class: 'btn btn-default btn-lg' %>
+</div>
 </div>

@@ -1,0 +1,43 @@
+    div#building {
+        height:100%;
+    }
+    div#building .building_box {
+        float:left;
+        display:block;
+        width:15em;
+        margin:3px 3px; padding:2px;
+        text-align:center;
+        overflow:hidden;
+        box-shadow: 10px 10px 10px -6px gray 
+    }
+  
+    div#building .box_detail {
+        background-color:#0033CC;
+        text-decoration: none;
+         border-radius: 10px;
+    }
+    div#building .box_detail:hover {
+        background-color:#000099;
+        text-decoration: none;
+         border-radius: 10px;
+    }
+    div#building .building_name {
+        display:block;
+        margin:0px 0px 0px 0px; padding:30px 8px 30px 8px;
+        color:#fff;
+        font-size:1.6em;
+        font-weight:bold;
+        text-align:center;
+
+    }
+    div#building .user_name {
+        display:block;
+        margin:5px; padding:5px 0;
+        background-color:#fff;
+        font-size:1.0em;
+        font-weight:bold;
+        text-align:center;
+        color:#666;
+        border-radius: 6px;
+    }
+

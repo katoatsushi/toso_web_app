@@ -1242,12 +1242,12 @@
       }
     },
     {
-      "id": "text#10",
+      "id": "total_score",
       "type": "text-block",
       "display": true,
       "description": "",
-      "x": 341.1,
-      "y": 620,
+      "x": 335,
+      "y": 625,
       "width": 51,
       "height": 63.5,
       "style": {

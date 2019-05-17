@@ -1,20 +1,24 @@
 <h1><%= @user.name %>さん、ようこそ</h1>
 
-<div class="container">
-    <div class="row">
-    	<% @my_buildings.each do |b| %>
-        <!-- <div class="col-xs-3"> -->
-        <div class="col-xs-6 col-md-3">
-        <div class = 'building_document'>
-			<%= link_to  building_path(b.id) do %>
 
-				<%= b.building_name %>
-				<div>
-					<%= b.user.name %>さんの資料
-			    </div>
-	    	<% end %>
-		</div>
-	    </div>
-	    <% end %>
-    </div>
+<div class="container">
+	<% @my_buildings.each do |b| %> 
+	<div class="col-md-3">  
+		<%= link_to  building_path(b.id) do %>  
+
+			<div id="building">
+
+				<div class="building_box box_detail">
+					<div class="building_name"><%= b.building_name %>
+					</div>
+					<div class="user_name">
+						<div><%= b.user.name %>さん</div>
+						<div><%= b.user.name %>さん</div>
+					</div>
+				</div>  
+			</div>
+		<% end %>
+	</div>
+	<% end %>
+
 </div>

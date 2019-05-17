@@ -19,13 +19,24 @@ class BuildingPDF
 
     report = Thinreports::Report.create do |r|
 
-        building_contents_for_first_page = {building_name: "#{building.building_name}"}
-        r.start_new_page :layout => File.join('app', 'pdfs', 'pdf_test.tlf') do |page|
-          page.values(building_contents_for_first_page)
-        end
+      building_contents_for_first_page = {building_name: "#{building.building_name}"}
+      r.start_new_page :layout => File.join('app', 'pdfs', 'pdf_test.tlf') do |page|
+        page.values(building_contents_for_first_page)
+      end
 
+      #今回の診断の総合点
+      if building.parts.count >= 1
+        total_score ||= 0
+        building.parts.each do |p|
+          total_score = total_score + p.score
+        end
+        total_score = total_score/building.parts.count.round(0)
+      end
+      #ここまで
+      #診断書２pのお建物について
       building_contents = {building_name: "#{building.building_name}",building_place: "#{building.building_place}",building_year: "築#{building.building_year}年",
-                        building_scale: "#{building.building_scale}",building_type: "#{building.building_type}",building_construction: "#{building.building_construction}"}
+                        building_scale: "#{building.building_scale}",building_type: "#{building.building_type}",building_construction: "#{building.building_construction}",total_score: "#{total_score}"}
+      #ここまで
       @reform_contents = {}
       @num = 0
   
@@ -42,6 +53,7 @@ class BuildingPDF
       building.parts.each do |part|
         cond = part.cond
         treat = part.treat
+
         if cond.include?("\r\n")
           cond.delete!("\r\n")
         end
