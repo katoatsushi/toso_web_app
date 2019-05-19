@@ -5,6 +5,8 @@ class User::ParameterSanitizer < Devise::ParameterSanitizer
 		permit(:sign_up, keys: [:name])   
         # ユーザー情報アップデート時のパラメーター
         permit(:account_update, keys: [:name])
+        permit(:invite, keys: [:name])
+        permit(:accept_invitation, keys: [:password, :password_confirmation, :invitation_token, :username])
 	end
 end
 # {:college_ids => []}

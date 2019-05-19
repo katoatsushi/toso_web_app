@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
 
-  get 'tops/index'
+  root 'buildings#index'
 
-  get 'tops/show'
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions',
+    :invitations => 'users/invitations'
+  } 
 
-  get 'top/show'
+  devise_scope :user do
+    get "sign_in", :to => "users/sessions#new"
+    get "sign_out", :to => "users/sessions#destroy" 
+  end
 
-  get 'top/index'
 
-  get 'users/show'
-
-  get 'users/index'
-
-  devise_for :users
 
   resources :buildings
 
@@ -22,8 +23,6 @@ Rails.application.routes.draw do
   resources :buildings , only: [:create ,:new ] do
     resources :parts, only: [:new,:create,:edit,:update, :show,:destroy]
   end
-
-  root 'buildings#index'
 
   resources :buildings , only: [:create ,:new ] do
     resources :tops , only: [:index, :show] do

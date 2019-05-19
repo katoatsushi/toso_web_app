@@ -28,7 +28,7 @@
 	<%= current_user.name %>さん ログイン
 	<%= link_to "投稿", new_building_path, class: 'btn btn-primary' %>
 	<%= link_to "ログアウト", destroy_user_session_path, class: 'btn btn-primary',method: :delete%>
-
+	<%= link_to "招待", new_user_invitation_path, class: 'btn btn-primary',method: :get %>
 
 <% else %>
 	<%= link_to "ログインする", new_user_session_path, class: 'btn btn-primary', method: :post %>

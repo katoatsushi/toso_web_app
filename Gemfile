@@ -13,6 +13,7 @@ gem 'mysql2'
 gem 'rails-i18n' # この行を追加(ransackには関係ないけどdate_select用)
 gem 'ransack' 
 gem 'devise'
+gem 'devise_invitable', '~> 2.0.0'
 gem 'gon'
 #Autoprefixer doesn’t support Node v4.8.2.のエラー用
 gem 'mini_racer'
