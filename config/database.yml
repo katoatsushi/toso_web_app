@@ -14,26 +14,26 @@ default: &default
 
 development:
   <<: *default
-  database: samplebuilding_development
+  database: toso_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: samplebuilding_test
-
-production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: heroku_851a45d0f3d0f31
-  pool: 5
-  username: bc86fa435a5299
-  password: 9b7f7065
-  host: us-cdbr-iron-east-01.cleardb.net
+  database: toso_test
 
 # production:
-#   <<: *default
-#   database: samplebuilding_production
+#   adapter: mysql2
+#   encoding: utf8
+#   reconnect: false
+#   database: heroku_851a45d0f3d0f31
+#   pool: 5
+#   username: bc86fa435a5299
+#   password: 9b7f7065
+#   host: us-cdbr-iron-east-01.cleardb.net
+
+production:
+  <<: *default
+  database: toso_production
 

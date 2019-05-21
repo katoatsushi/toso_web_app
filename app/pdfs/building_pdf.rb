@@ -5,12 +5,16 @@ class BuildingPDF
   def self.create building
     # #1日以上前のグラフの写真がある場合、新しいPDFを作成するときに自動的に古いPDFを削除する
      Dir.glob("#{Rails.root}/app/assets/images/*").each do |file_name|
+        #binding.pry
         file_path = file_name.split("_")
         if Rails.env == 'development'
-          @file_date = file_path[2].to_time
+          @file_date = file_path[3].to_time
         elsif Rails.env == 'production'
+          #用注意
+          #@file_date = file_path[2].to_time
           @file_date = file_path[1].to_time
         end
+
         if Time.now - @file_date > 10
           FileUtils.rm(file_name)
         end
